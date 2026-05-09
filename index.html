@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ancestral Arts Masterclass Series — NDINA Gallery</title>
+<meta property="og:title" content="Ancestral Arts Masterclass Series — NDINA Gallery">
+<meta property="og:description" content="Step into the living studios of three of Fiji's master painters. Learn to speak with your ancestors through art — six weeks, online. June 2026.">
+<meta property="og:image" content="https://ndina.gallery/og-cover.jpg">
+<meta property="og:url" content="https://ndina.gallery">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ancestral Arts Masterclass Series — NDINA Gallery">
+<meta name="twitter:description" content="Step into the living studios of three of Fiji's master painters. Learn to speak with your ancestors through art.">
+<meta name="twitter:image" content="https://ndina.gallery/og-cover.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -823,10 +832,12 @@ footer a:hover { color: var(--ochre); }
   .hero-tags { gap: 8px; }
   .hero-tag { font-size: 9px; padding: 4px 10px; }
   .story-section { padding: 3rem 1.5rem; }
-  .story-with-photo { grid-template-columns: 1fr; gap: 2rem; }
+  .story-with-photo { grid-template-columns: 120px 1fr; gap: 1.5rem; }
   .story-photo-col { position: static; }
-  .story-portrait-wrap { max-width: 180px; margin: 0 auto; }
-  .story-photo-name, .story-photo-role { text-align: center; display: block; }
+  .story-portrait-wrap { width: 120px; aspect-ratio: 1; }
+  .story-photo-name { font-size: 9px; }
+  .story-photo-role { font-size: 8px; }
+  .story-text-col p { font-size: 1rem; }
   .phases { padding: 3.5rem 1.5rem; }
   .artists-section { padding: 3.5rem 1.5rem 0; }
   .artist-col-photo { aspect-ratio: 4/3; }
@@ -994,8 +1005,8 @@ footer a:hover { color: var(--ochre); }
 /* STORY WITH PHOTO */
 .story-with-photo {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 3.5rem;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
   align-items: start;
   margin-bottom: 3rem;
 }
