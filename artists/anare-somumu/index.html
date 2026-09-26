@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function(){
+  var saved = localStorage.getItem('ndina-theme');
+  if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anare Somumu — NDINA Gallery</title>
@@ -12,12 +18,20 @@
   :root{
     --ink:#121212;
     --paper:#FFFFFF;
-    --clay:#8B4636;
-    --clay-soft:#B06A52;
+    --clay:#CE6345;
+    --clay-soft:#E08D74;
     --stone:#5B5854;
     --line:rgba(18,18,18,0.13);
     --sans:'Jost', sans-serif;
     --ease: cubic-bezier(.22,1,.36,1);
+  }
+  [data-theme="dark"]{
+    --ink:#F4F1EC;
+    --paper:#000000;
+    --clay:#CE6345;
+    --clay-soft:#E08D74;
+    --stone:#9C9892;
+    --line:rgba(244,241,236,0.14);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -34,13 +48,27 @@
 
   /* header */
   header{
-    background:rgba(255,255,255,0.94);
-    border-bottom:1px solid var(--line);
+    background:rgba(255,255,255,0.94);border-bottom:1px solid var(--line);
     display:flex;align-items:center;justify-content:space-between;
     padding:16px clamp(20px,5vw,56px);
   }
+  [data-theme="dark"] header{background:rgba(0,0,0,0.92);}
   header .logo img{height:22px;width:auto;}
+  [data-theme="dark"] header .logo img{filter:brightness(0) invert(1);}
   header nav{display:flex;gap:28px;}
+  .theme-toggle{
+    width:32px;height:32px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;background:transparent;cursor:pointer;
+    color:var(--ink);transition:background .3s var(--ease),border-color .3s var(--ease);
+    margin-left:6px;flex-shrink:0;
+  }
+  .theme-toggle:hover{background:var(--line);}
+  .theme-toggle svg{width:15px;height:15px;}
+  .theme-toggle .icon-sun{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-moon{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-sun{display:block;}
+  header nav{align-items:center;}
+
   header nav a{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;color:var(--ink);position:relative;padding-bottom:3px;}
   header nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease);}
   header nav a:hover::after{transform:scaleX(1);transform-origin:left;}
@@ -65,6 +93,7 @@
     border-bottom:1px solid var(--line);margin-bottom:56px;
     scrollbar-width:none;
   }
+  [data-theme="dark"] .subnav{background:rgba(0,0,0,0.94);}
   .subnav::-webkit-scrollbar{display:none;}
   .subnav a{font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--stone);transition:color .3s var(--ease);flex-shrink:0;white-space:nowrap;}
   .subnav a:hover{color:var(--clay);}
@@ -83,9 +112,9 @@
     margin-top:28px;padding-top:20px;border-top:1px solid var(--line);
     font-size:13px;color:var(--stone);
   }
-  .commission-line a{color:var(--clay);font-weight:500;border-bottom:1px solid rgba(139,70,54,0.4);transition:color .3s var(--ease),border-color .3s var(--ease);}
+  .commission-line a{color:var(--clay);font-weight:500;border-bottom:1px solid rgba(206,99,69,0.4);transition:color .3s var(--ease),border-color .3s var(--ease);}
   .commission-line a:hover{color:var(--ink);border-color:var(--ink);}
-  #biography .bio-text a{color:var(--clay);border-bottom:1px solid rgba(139,70,54,0.4);transition:color .3s var(--ease),border-color .3s var(--ease);}
+  #biography .bio-text a{color:var(--clay);border-bottom:1px solid rgba(206,99,69,0.4);transition:color .3s var(--ease),border-color .3s var(--ease);}
   #biography .bio-text a:hover{color:var(--ink);border-color:var(--ink);}
 
   #biography .bio-text{max-width:none;}
@@ -161,7 +190,7 @@
     font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;
     transition:background .3s var(--ease), color .3s var(--ease);
   }
-  .lb-btn:hover{background:#fff;color:var(--ink);}
+  .lb-btn:hover{background:#fff;color:#121212;}
   .lb-close{position:absolute;top:20px;right:24px;color:#fff;background:none;border:none;cursor:pointer;font-size:28px;line-height:1;}
 
   /* CV download card */
@@ -172,7 +201,7 @@
   }
   .cv-download-icon{
     width:44px;height:44px;flex-shrink:0;border-radius:50%;
-    background:rgba(139,70,54,0.08);color:var(--clay);
+    background:rgba(206,99,69,0.08);color:var(--clay);
     display:flex;align-items:center;justify-content:center;
   }
   .cv-download-icon svg{width:20px;height:20px;}
@@ -210,7 +239,13 @@
   <nav>
     <a href="../../index.html">Home</a>
     <a href="../" class="active">Artists</a>
+    <a href="../../artwaka/">Artwaka</a>
+    <a href="../../studio/">Studio</a>
     <a href="../../connect/">Connect</a>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8L6 18M18 6l1.8-1.8"/></svg>
+    </button>
   </nav>
 </header>
 
@@ -307,6 +342,8 @@
   <div class="foot-right">
     <a href="../../index.html">Home</a>
     <a href="../">Artists</a>
+    <a href="../../artwaka/">Artwaka</a>
+    <a href="../../studio/">Studio</a>
     <a href="../../connect/">Connect</a>
   </div>
 </footer>
@@ -375,6 +412,18 @@
   });
   document.getElementById('lbClose').addEventListener('click', () => lightbox.classList.remove('open'));
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+
+  // theme toggle
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('ndina-theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('ndina-theme', 'dark');
+    }
+  });
 </script>
 
 </body>
