@@ -74,7 +74,8 @@ footer{
   footer .glyph-img{color:var(--clay);width:9px;height:24px;}
   footer .foot-left{display:flex;align-items:center;gap:12px;color:var(--stone);font-size:11px;}
   footer .foot-right{display:flex;gap:22px;}
-  footer .foot-right a{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);}
+  footer .foot-right a{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);transition:color .3s var(--ease);}
+  footer .foot-right a:hover{color:var(--ink);}
 
   
 
