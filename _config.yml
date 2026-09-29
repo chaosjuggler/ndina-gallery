@@ -1,0 +1,12 @@
+title: NDINA Gallery
+description: >-
+  NDINA Gallery — an international fine art gallery representing
+  Fijian contemporary painters for global audiences.
+url: "https://ndina.gallery"
+
+# Files/folders Jekyll should leave alone or ignore entirely.
+# (Nothing needed yet — add paths here later if a build ever
+# picks up something it shouldn't, e.g. a folder of raw source
+# assets that isn't meant to be published as-is.)
+exclude:
+  - README.md
