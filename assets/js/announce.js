@@ -25,6 +25,12 @@
   var a = document.createElement('a'); a.id = 'ndina-announce'; a.href = URL;
   a.setAttribute('aria-label', TEXT);
   a.innerHTML = '<span class="in"><span class="sh">' + TEXT + ' &rarr;</span></span>';
+  if (location.pathname === '/' || location.pathname === '/index.html') {
+    // home page: overlay the bar so it never pushes the full-height hero down (avoids a layout jump)
+    var o = document.createElement('style');
+    o.textContent = '#ndina-announce{position:absolute;top:0;left:0;right:0;z-index:1000}';
+    document.head.appendChild(o);
+  }
   document.body.insertBefore(a, document.body.firstChild);
   setTimeout(function () { a.classList.add('show'); }, DELAY);
 })();

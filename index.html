@@ -45,6 +45,8 @@ body{overflow-x:hidden;}
     padding:14px clamp(20px,5vw,56px);
   }
   [data-theme="dark"] header.scrolled{background:rgba(0,0,0,0.92);}
+  /* transparent over the hero until scrolled (overrides shared base.css header background, incl. dark mode) */
+  header:not(.scrolled),[data-theme="dark"] header:not(.scrolled){background:transparent;backdrop-filter:none;border-bottom-color:transparent;}
   header .logo img{height:24px;width:auto;filter:brightness(0) invert(1);transition:filter .45s var(--ease);}
   header.scrolled .logo img{filter:none;}
   [data-theme="dark"] header.scrolled .logo img{filter:brightness(0) invert(1);}
@@ -92,9 +94,11 @@ body{overflow-x:hidden;}
   .slide.active{opacity:1;visibility:visible;z-index:2;}
   .slide-art{position:absolute;inset:0;}
   .slide-art img{width:100%;height:100%;object-fit:cover;object-position:center 28%;}
-  .slide-art img.pan-lr{animation:panLR 18s ease-in-out infinite alternate;}
-  .slide-art img.pan-tb{animation:panTB 18s ease-in-out infinite alternate;}
-  .slide-art img.zoom-out{animation:zoomOut 20s ease-in-out infinite alternate;}
+  .slide-art img{will-change:transform;}
+  .slide-art img.pan-lr{animation:panLR 18s ease-in-out infinite alternate paused;}
+  .slide-art img.pan-tb{animation:panTB 18s ease-in-out infinite alternate paused;}
+  .slide-art img.zoom-out{animation:zoomOut 20s ease-in-out infinite alternate paused;}
+  .slide.active .slide-art img{animation-play-state:running;}
   @keyframes panLR{
     0%{transform:scale(1.1) translateX(-2.2%);}
     100%{transform:scale(1.1) translateX(2.2%);}
@@ -132,14 +136,14 @@ body{overflow-x:hidden;}
   }
   .slide.active .tag-gold{transform:translateY(0);opacity:1;}
   .tag-gold::after{
-    content:"";position:absolute;top:0;left:-150%;width:55%;height:100%;
+    content:"";position:absolute;top:0;left:0;width:55%;height:100%;transform:translateX(-150%);will-change:transform;
     background:linear-gradient(120deg, transparent, rgba(255,255,255,0.75), transparent);
     animation:shimmer 3.4s ease-in-out infinite;
   }
   @keyframes shimmer{
-    0%{left:-150%;}
-    55%{left:140%;}
-    100%{left:140%;}
+    0%{transform:translateX(-150%);}
+    55%{transform:translateX(255%);}
+    100%{transform:translateX(255%);}
   }
   .slide-copy h1{
     font-family:var(--sans);font-weight:300;
@@ -470,9 +474,10 @@ body{overflow-x:hidden;}
 
 <script>
   const header = document.getElementById('siteHeader');
+  header.classList.toggle('scrolled', window.scrollY > 60);
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  }, {passive:true});
 
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
