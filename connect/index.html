@@ -246,7 +246,11 @@ title: Connect
       <p>Enquire about available works, commissions, or art consultation services. We respond within one business day.</p>
       <a class="connect-email" href="mailto:connect@ndina.gallery">connect@ndina.gallery</a>
     </div>
-    <form id="inquiryForm">
+    <form id="inquiryForm" novalidate>
+      <input type="hidden" name="access_key" value="75a0b6e0-e5d7-43b0-981f-c0893d68652f">
+      <input type="hidden" name="subject" value="New enquiry from ndina.gallery">
+      <input type="hidden" name="from_name" value="NDINA Gallery website">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
       <div class="field">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
@@ -260,19 +264,41 @@ title: Connect
         <textarea id="message" name="message" required></textarea>
       </div>
       <button type="submit" class="submit-btn">Send Enquiry</button>
-      <p class="form-note">This draft form opens your email client. We'll wire it to a proper inbox integration when the full site is built.</p>
+      <p class="form-note" id="formNote" role="status" aria-live="polite">We respond within one business day.</p>
     </form>
   </div>
 </section>
 
 <script>
-  document.getElementById('inquiryForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const subject = encodeURIComponent('Gallery Enquiry from ' + name);
-    const body = encodeURIComponent(message + '\n\n' + name + '\n' + email);
-    window.location.href = `mailto:connect@ndina.gallery?subject=${subject}&body=${body}`;
-  });
+  (function(){
+    var form = document.getElementById('inquiryForm');
+    var note = document.getElementById('formNote');
+    var btn = form.querySelector('.submit-btn');
+    function mailtoFallback(){
+      var n = form.name.value, m = form.message.value, e = form.email.value;
+      window.location.href = 'mailto:connect@ndina.gallery?subject=' + encodeURIComponent('Gallery Enquiry from ' + n) +
+        '&body=' + encodeURIComponent(m + '\n\n' + n + '\n' + e);
+    }
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      if (!form.reportValidity()) return;
+      btn.disabled = true; btn.textContent = 'Sending…'; note.style.color = '';
+      var data = Object.fromEntries(new FormData(form));
+      data.replyto = data.email;
+      fetch('https://api.web3forms.com/submit', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify(data)
+      }).then(function(r){ return r.json(); }).then(function(j){
+        if (!j.success) throw new Error(j.message || 'failed');
+        form.reset();
+        btn.textContent = 'Sent';
+        note.textContent = 'Thank you — your enquiry has been sent. We\u2019ll be in touch within one business day.';
+        note.style.color = 'var(--ink)';
+      }).catch(function(){
+        btn.disabled = false; btn.textContent = 'Send Enquiry';
+        note.innerHTML = 'Sorry, that didn\u2019t send. Please try again or email <a href="mailto:connect@ndina.gallery">connect@ndina.gallery</a>.';
+      });
+    });
+  })();
 </script>
