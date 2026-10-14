@@ -89,12 +89,12 @@ body{overflow-x:hidden;}
   }
   .slide{
     position:absolute;inset:0;opacity:0;visibility:hidden;
-    transition:opacity 1.1s var(--ease);
+    /* keep the outgoing slide visible until its fade finishes (was vanishing instantly = hard cut) */
+    transition:opacity 1.1s var(--ease), visibility 0s linear 1.1s;
   }
-  .slide.active{opacity:1;visibility:visible;z-index:2;}
+  .slide.active{opacity:1;visibility:visible;z-index:2;transition-delay:0s,0s;}
   .slide-art{position:absolute;inset:0;}
   .slide-art img{width:100%;height:100%;object-fit:cover;object-position:center 28%;}
-  .slide-art img{will-change:transform;}
   .slide-art img.pan-lr{animation:panLR 18s ease-in-out infinite alternate paused;}
   .slide-art img.pan-tb{animation:panTB 18s ease-in-out infinite alternate paused;}
   .slide-art img.zoom-out{animation:zoomOut 20s ease-in-out infinite alternate paused;}
@@ -516,10 +516,14 @@ body{overflow-x:hidden;}
     clearTimeout(timer);
     timer = setTimeout(() => goTo(current + 1), 6500);
   }
+  // pre-decode every slide image so a slide never pops in half-painted when it fades up
+  const slideImgs = [...document.querySelectorAll('.slide-art img')];
+  const decoded = Promise.all(slideImgs.map(im => (im.decode ? im.decode() : Promise.resolve()).catch(()=>{})));
+  clearTimeout(timer);
   document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
   document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
   bars.forEach(bar => bar.addEventListener('click', () => goTo(parseInt(bar.dataset.go))));
-  resetTimer();
+  decoded.then(resetTimer);
 
   document.getElementById('inquiryForm').addEventListener('submit', function(e){
     e.preventDefault();
