@@ -78,7 +78,7 @@ custom_header: true
   .rc-dot i{display:block;width:8px;height:8px;border-radius:50%;background:#fff;opacity:.5;transition:opacity .3s;} .rc-dot.is-active i{opacity:1;}
   .rc-lede{font-size:clamp(22px,2.3vw,28px);line-height:1.45;font-weight:300;margin-top:72px;}
   .rc-body{font-size:18px;line-height:1.75;margin-top:24px;}
-  .rc-sec{margin-top:110px;}
+  .rc-sec{margin-top:64px;}
   .rc-sec h2{font-weight:300;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.005em;}
   .rc-sec h2+.rc-body{margin-top:22px;}
   .rc-fig{margin:0;}
@@ -89,7 +89,7 @@ custom_header: true
   .rc-pair{max-width:1080px;margin:72px auto 0;padding:0 clamp(20px,5vw,56px);display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:end;}
   .rc-pair .rc-ph{aspect-ratio:3/2;} .rc-pair .tall .rc-ph{aspect-ratio:3/4;}
   .rc-pair2{grid-template-columns:1fr 1.5fr;} .rc-pair2 .tall .rc-ph{aspect-ratio:3/4;} .rc-pair2 .wide .rc-ph{aspect-ratio:4/3;}
-  .rc-full{margin-top:90px;} .rc-full .rc-ph{aspect-ratio:21/9;} .rc-full figcaption{padding-left:clamp(20px,5vw,56px);}
+  .rc-full{margin-top:56px;} .rc-full .rc-ph{aspect-ratio:21/9;} .rc-full figcaption{padding-left:clamp(20px,5vw,56px);}
   .rc-inset{max-width:880px;margin:90px auto 0;padding:0 clamp(20px,5vw,56px);} .rc-inset .rc-ph{aspect-ratio:3/2;}
   .rc-idx{max-width:1280px;margin:80px auto 0;padding:0 clamp(20px,5vw,56px);}
   .rc-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:48px 0 56px;border-top:1px solid var(--line);align-items:start;}
@@ -99,7 +99,7 @@ custom_header: true
   .rc-row .txt{grid-column:7 / span 6;}
   .rc-row .txt p{font-size:17px;line-height:1.75;margin-bottom:32px;}
   .rc-row .txt p:last-child{margin-bottom:0;}
-  .rc-body{margin-top:32px;} .rc-sec h2+.rc-body{margin-top:28px;}
+  .rc-col p+p{margin-top:32px;} .rc-sec h2{margin-bottom:28px;}
   /* artist photos: single image or gallery */
   .rc-gph{overflow:hidden;background:var(--line);} .rc-gph img{display:block;width:100%;height:auto;}
   .rc-single{margin:0;} .rc-single figcaption,.rc-cap{padding-top:14px;font-size:13px;line-height:1.55;color:var(--stone);letter-spacing:.02em;margin:0;}
@@ -117,13 +117,13 @@ custom_header: true
   .rc-th img{width:100%;height:100%;object-fit:cover;display:block;}
   .rc-th:hover{opacity:1;} .rc-th.is-active{opacity:1;border-color:var(--ink);}
   .rc-cap{display:none;} .rc-cap.is-active{display:block;}
-  .rc-slide.rc-slot{aspect-ratio:2/3;}
+  .rc-slide.rc-slot{aspect-ratio:2/3;display:none;} .rc-slide.rc-slot.is-active{display:flex;}
   .rc-slot{display:flex;align-items:center;justify-content:center;text-align:center;border:1px dashed var(--stone);background:transparent;}
   .rc-slot span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);}
   .rc-shop{color:var(--clay);text-decoration:underline;text-underline-offset:3px;} .rc-shop:hover{color:var(--ink);}
   /* final talanoa section: portrait left, text right, wide image full-bleed below */
   .rc-split{max-width:1280px;margin:110px auto 0;padding:0 clamp(20px,5vw,56px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:start;}
-  .rc-split .l{grid-column:1 / span 5;margin:0;} .rc-split .l .rc-ph{overflow:hidden;background:var(--line);} .rc-split .l .rc-ph img{height:auto;}
+  .rc-split .l{grid-column:1 / span 5;margin:0;display:flex;flex-direction:column;gap:44px;} .rc-split .l .rc-ph{overflow:hidden;background:var(--line);} .rc-split .l .rc-ph img{height:auto;}
   .rc-split .r{grid-column:7 / span 6;} .rc-split h2{font-weight:300;font-size:clamp(28px,3.4vw,42px);line-height:1.15;margin-bottom:34px;}
   .rc-split .r p{font-size:18px;line-height:1.75;margin-bottom:32px;} .rc-split .r p:last-child{margin-bottom:0;}
   .rc-quote{max-width:860px;margin:110px auto 0;padding:0 24px;text-align:center;font-size:clamp(26px,3.2vw,40px);font-weight:300;line-height:1.3;}
@@ -138,11 +138,11 @@ custom_header: true
     .rc-hero{height:72svh;}
     .rc-top{padding-top:48px;}
     .rc-car{margin-top:56px;} .rc-cview{height:auto;aspect-ratio:4/5;}
-    .rc-lede{margin-top:52px;} .rc-sec{margin-top:76px;}
+    .rc-lede{margin-top:52px;} .rc-sec{margin-top:48px;}
     .rc-pair{grid-template-columns:1fr;margin-top:48px;gap:24px;}
-    .rc-full{margin-top:60px;} .rc-full .rc-ph{aspect-ratio:4/5;}
+    .rc-full{margin-top:44px;} .rc-full .rc-ph{aspect-ratio:4/5;}
     .rc-inset{margin-top:60px;} .rc-quote{margin-top:76px;}
-    .rc-idx{margin-top:48px;} .rc-row{display:block;padding:36px 0 44px;} .rc-row h3{margin-bottom:20px;} .rc-row .txt{margin-top:28px;} .rc-split{display:block;margin-top:76px;} .rc-split .r{margin-top:32px;}
+    .rc-idx{margin-top:48px;} .rc-row{display:block;padding:36px 0 44px;} .rc-row h3{margin-bottom:20px;} .rc-row .txt{margin-top:28px;} .rc-split{display:flex;flex-direction:column;margin-top:76px;} .rc-split .l,.rc-split .r{display:contents;} .rc-split .f1{order:1;} .rc-split h2{order:2;margin-top:36px;} .rc-split .r p:nth-of-type(1){order:3;} .rc-split .r p:nth-of-type(2){order:4;} .rc-split .f2{order:5;margin:8px 0 40px;} .rc-split .r p:nth-of-type(3){order:6;}
     .rc-end{margin-top:76px;padding:72px 20px 80px;}
   }
 </style>
@@ -235,7 +235,10 @@ custom_header: true
 <figure class="rc-fig rc-inset"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-4.jpg" alt="Guests gathered in a circle for evening talanoa" loading="lazy" decoding="async"></div><figcaption><b>Evening kava-talanoa</b>Four Shells Fale Talanoa, Tāmaki Makaurau</figcaption></figure>
 
 <section class="rc-split">
-  <figure class="rc-fig l"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-6.jpg" alt="Talanoa circle with a guest reading" loading="lazy" decoding="async"></div><figcaption><b>Talanoa</b>Auckland</figcaption></figure>
+  <div class="l">
+    <figure class="rc-fig f1"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-6.jpg" alt="Talanoa circle with a guest reading" loading="lazy" decoding="async"></div><figcaption><b>Talanoa</b>Auckland</figcaption></figure>
+    <figure class="rc-fig f2"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-7.jpg" alt="Kava bowl at the centre of the circle" loading="lazy" decoding="async"></div><figcaption><b>The kava bowl</b>Four Shells Fale Talanoa, Tāmaki Makaurau</figcaption></figure>
+  </div>
   <div class="r">
     <h2>Voyaging together through talanoa</h2>
     <p>As a cultural exchange platform, the Artwaka evening kava-talanoa sessions created a fertile container for cross pollination between a broad spectrum of Tāmaki Makarau’s vibrant creative whanau. Celebrated Tongan sculptor and lalava lashing artist Sopolemalama Filipe Tohi joined the first evening mix sharing reflections on his involvement with the Tautai Pacific Arts Trust and early interactions with Red Wave Collective artists, including Lee and McNamara, in Fiji at the University of the South Pacific’s Oceania Centre.</p>
@@ -243,7 +246,7 @@ custom_header: true
     <p>Serendipity brought faculty and staff from Aotearoa’s largest academic institutions - the University of Auckland and Auckland University of Technology - together with the wider Four Shells community on the final evening of the exhibition for a spontaneous and immersive collective journey through whakapapa, the te reo Māori term for ancestral lineage. Course convenors and facilitators from AUT’s five week UniPrep summer program integrated their planned hui into the art-talanoa sharing powerful stories of professional growth alongside personal introductions that wove a thick relational fabric between every participant around the kava bowl.</p>
   </div>
 </section>
-<figure class="rc-fig rc-full" style="margin-top:80px"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-7.jpg" alt="Kava bowl at the centre of the circle" loading="lazy" decoding="async"></div><figcaption><b>The kava bowl</b>Four Shells Fale Talanoa, Tāmaki Makaurau</figcaption></figure>
+
 
 <section class="rc-end">
   <h2>Sailing onwards</h2>
