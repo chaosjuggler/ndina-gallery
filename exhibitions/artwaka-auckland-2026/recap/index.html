@@ -1,0 +1,210 @@
+---
+layout: default
+title: Artwaka Auckland — Recap
+description: A recap of Artwaka Auckland, NDINA Gallery's maiden voyage from Fiji to Aotearoa for a week of art and kava-talanoa at the Four Shells Fale Talanoa.
+custom_header: true
+---
+<style>
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px clamp(20px,5vw,56px);
+    transition:background .45s var(--ease), border-color .45s var(--ease), padding .3s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    padding:14px clamp(20px,5vw,56px);
+  }
+  [data-theme="dark"] header.scrolled{background:rgba(0,0,0,0.92);}
+  /* transparent over the hero until scrolled (overrides shared base.css header background, incl. dark mode) */
+  header:not(.scrolled),[data-theme="dark"] header:not(.scrolled){background:transparent;backdrop-filter:none;border-bottom-color:transparent;}
+  header .logo img{height:24px;width:auto;filter:brightness(0) invert(1);transition:filter .45s var(--ease);}
+  header.scrolled .logo img{filter:none;}
+  [data-theme="dark"] header.scrolled .logo img{filter:brightness(0) invert(1);}
+  header nav{display:flex;gap:30px;align-items:center;}
+  .theme-toggle{
+    width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,0.5);
+    display:flex;align-items:center;justify-content:center;background:transparent;cursor:pointer;
+    color:#fff;transition:background .3s var(--ease),border-color .3s var(--ease),color .45s var(--ease);
+    margin-left:2px;flex-shrink:0;
+  }
+  header.scrolled .theme-toggle{border-color:var(--line);color:var(--ink);}
+  .theme-toggle:hover{background:rgba(255,255,255,0.15);}
+  header.scrolled .theme-toggle:hover{background:var(--line);}
+  .theme-toggle svg{width:15px;height:15px;}
+  .theme-toggle .icon-sun{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-moon{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-sun{display:block;}
+  header nav a{
+    font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;
+    color:#fff;position:relative;padding-bottom:4px;
+    transition:color .45s var(--ease);
+  }
+  header.scrolled nav a{color:var(--ink);}
+  header nav a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+    background:currentColor;transform:scaleX(0);transform-origin:right;
+    transition:transform .4s var(--ease);
+  }
+  header nav a:hover::after{transform:scaleX(1);transform-origin:left;}
+
+  /* burger — white over the transparent hero header, ink once scrolled */
+  .burger{border-color:rgba(255,255,255,0.5);}
+  .burger .bars span{background:#fff;}
+  /* ---------- RECAP PAGE ---------- */
+  .rc-hero{position:relative;height:84svh;min-height:520px;background:var(--ink);overflow:hidden;}
+  .rc-hero img{width:100%;height:100%;object-fit:cover;object-position:30% 72%;display:block;}
+  .rc-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,7,.5) 0,rgba(10,8,7,0) 28%);pointer-events:none;}
+  .rc-top{text-align:center;padding:72px 24px 8px;}
+  .rc-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);}
+  .rc-top h1{font-weight:300;font-size:clamp(40px,7vw,92px);line-height:1;letter-spacing:-.012em;margin-top:20px;}
+  .rc-dateline{margin-top:20px;font-size:16px;color:var(--stone);letter-spacing:.02em;}
+  .rc-col{max-width:680px;margin:0 auto;padding:0 24px;}
+  .rc-lede{font-size:clamp(22px,2.3vw,28px);line-height:1.45;font-weight:300;margin-top:72px;}
+  .rc-body{font-size:18px;line-height:1.75;margin-top:24px;}
+  .rc-sec{margin-top:110px;}
+  .rc-sec h2{font-weight:300;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.005em;}
+  .rc-sec h2+.rc-body{margin-top:22px;}
+  .rc-fig{margin:0;}
+  .rc-fig .rc-ph{overflow:hidden;background:var(--line);}
+  .rc-fig img{width:100%;height:100%;object-fit:cover;display:block;}
+  .rc-fig figcaption{padding-top:12px;font-size:12.5px;line-height:1.5;color:var(--stone);letter-spacing:.03em;}
+  .rc-fig figcaption b{display:block;font-weight:500;color:var(--ink);}
+  .rc-pair{max-width:1080px;margin:72px auto 0;padding:0 clamp(20px,5vw,56px);display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:end;}
+  .rc-pair .rc-ph{aspect-ratio:3/2;} .rc-pair .tall .rc-ph{aspect-ratio:3/4;}
+  .rc-pair2{grid-template-columns:1fr 1.5fr;} .rc-pair2 .tall .rc-ph{aspect-ratio:3/4;} .rc-pair2 .wide .rc-ph{aspect-ratio:4/3;}
+  .rc-full{margin-top:90px;} .rc-full .rc-ph{aspect-ratio:21/9;} .rc-full figcaption{padding-left:clamp(20px,5vw,56px);}
+  .rc-inset{max-width:880px;margin:90px auto 0;padding:0 clamp(20px,5vw,56px);} .rc-inset .rc-ph{aspect-ratio:3/2;}
+  .rc-idx{max-width:1280px;margin:80px auto 0;padding:0 clamp(20px,5vw,56px);}
+  .rc-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:36px 0;border-top:1px solid var(--line);align-items:start;}
+  .rc-row:last-child{border-bottom:1px solid var(--line);}
+  .rc-row h3{grid-column:1 / span 5;font-weight:200;font-size:clamp(28px,4vw,52px);letter-spacing:-.012em;line-height:1.05;}
+  .rc-row .txt{grid-column:7 / span 6;} .rc-row .txt p{font-size:17px;line-height:1.75;margin-bottom:18px;} .rc-row .txt p:last-child{margin-bottom:0;}
+  .rc-quote{max-width:860px;margin:110px auto 0;padding:0 24px;text-align:center;font-size:clamp(26px,3.2vw,40px);font-weight:300;line-height:1.3;}
+  .rc-quote span{color:var(--clay);}
+  .rc-end{margin-top:120px;padding:96px 24px 110px;text-align:center;border-top:1px solid var(--line);}
+  .rc-end h2{font-weight:300;font-size:clamp(28px,3.4vw,42px);}
+  .rc-end p{max-width:640px;margin:22px auto 0;font-size:18px;line-height:1.75;text-align:left;}
+  .rc-end a:not(.rc-btn){color:var(--clay);text-decoration:underline;text-underline-offset:3px;}
+  .rc-btn{display:inline-block;margin-top:34px;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--ink);padding:15px 30px;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease);}
+  .rc-btn:hover{background:var(--clay);border-color:var(--clay);color:#fff;}
+  @media (max-width:760px){
+    .rc-hero{height:72svh;}
+    .rc-top{padding-top:48px;}
+    .rc-lede{margin-top:52px;} .rc-sec{margin-top:76px;}
+    .rc-pair{grid-template-columns:1fr;margin-top:48px;gap:24px;}
+    .rc-full{margin-top:60px;} .rc-full .rc-ph{aspect-ratio:4/5;}
+    .rc-inset{margin-top:60px;} .rc-quote{margin-top:76px;}
+    .rc-idx{margin-top:48px;} .rc-row{display:block;padding:28px 0;} .rc-row .txt{margin-top:16px;}
+    .rc-end{margin-top:76px;padding:72px 20px 80px;}
+  }
+</style>
+
+<header id="siteHeader">
+  <a href="/" class="logo"><img src="/assets/img/ndina-logo.png" alt="NDINA Gallery"></a>
+  <nav class="desktop-nav"><a href="/artists/">Artists</a><a href="/artwaka/">Artwaka</a><a href="/studio/">Studio</a><a href="/connect/">Connect</a>
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8L6 18M18 6l1.8-1.8"/></svg>
+    </button>
+  </nav>
+  <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span class="bars"><span></span><span></span><span></span></span>
+  </button>
+</header>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-top"><button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/artists/">Artists</a>
+    <a href="/artwaka/" class="active">Artwaka</a>
+    <a href="/studio/">Studio</a>
+    <a href="/connect/">Connect</a>
+  </nav>
+  <div class="drawer-foot">
+    <span class="small">NDINA Gallery</span>
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8L6 18M18 6l1.8-1.8"/></svg>
+    </button>
+  </div>
+</aside>
+
+<main>
+<section class="rc-hero">
+  <img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-1.jpg" width="1600" height="1231" alt="Artwaka Auckland title over works on a brick gallery wall" fetchpriority="high">
+</section>
+
+<section class="rc-top">
+  <p class="rc-eyebrow">Exhibition recap · October 2026</p>
+  <h1>Artwaka Auckland</h1>
+  <p class="rc-dateline">Four Shells Fale Talanoa, Auckland CBD</p>
+</section>
+
+<div class="rc-col">
+  <p class="rc-lede">Artwaka is a voyaging event series and collaborative platform curated by NDINA Gallery combining contemporary Oceanic arts with intentional space for kava-talanoa. Rooted in the shared significance of ‘waka’ - premium noble kava roots in the Fijian tradition, and traditional canoe in Māori culture - Artwaka celebrates Pacific heritage and contemporary art as a living, connected force.</p>
+  <p class="body">In the first week of October 2026, the Artwaka made its maiden voyage from Fiji to Aotearoa for a weeklong exhibition and program of arts-based talanoa celebrating Fiji Language Week and Fiji Day 2026. In partnership with the Fiji Craft Society a diverse exhibition of original canvas, masi barkcloth and fine ink artworks were displayed together with traditional woven crafts and selected art objects at the Four Shells Fale Talanoa in the Auckland CBD.</p>
+  <p class="body">One of the last events to be hosted at the Fale Talanoa before relocation of their function space, Four Shells owners Anau Henry-Masui and Todd Henry received a formal Fijian isevusevu presentation of yaqona from members of Fiji Craft Society and NDINA Gallery. Recognizing the whenua of Aotearoa and Tāmaki Makaurau, the isevusevu emphasized the visiting group’s gratitude for being welcomed and joy in establishing a newfound friendship between the Four Shells community and Fijian arts ecosystem.</p>
+</div>
+
+<div class="rc-col rc-sec">
+  <h2>Fiji Craft Society</h2>
+  <p class="body">Niqa Tuvuki, President of the Fiji Craft Society, opened the first evening of art-talanoa sharing her excitement to be coordinating the Society’s week long engagements with the Fijian community in Tāmaki Makarau including craft, language and meke (traditional dance) workshops for Aotearoa-born Fijian youth.</p>
+  <p class="body">By way of introduction, Tuvuki shared a moving story from 2011 underlining the importance of heritage craft to modern cultural expression. When a Fijian cultural delegation visiting Aotearoa to perform a meke from the island of Vatulele, an island famous for its intricate masi barkcloth designs, encountered numerous inexplicable setbacks during preparations their leader received a vivid dream. Transported to a chiefly bure (traditional house) on Vatulele, the leader was shown the correct orientation of the masi that was similarly being used for the group’s stage backdrop. Following an immediate adjustment at the venue upon awakening, the group executed a flawless performance that was praised widely by both the hosts and assembled Pacific Island delegations.</p>
+</div>
+<div class="rc-pair">
+  <figure class="rc-fig "><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-2.jpg" alt="Two guests seated on woven mats in the gallery" loading="lazy" decoding="async"></div><figcaption><b>Opening evening</b>Four Shells Fale Talanoa, Tāmaki Makaurau</figcaption></figure>
+  <figure class="rc-fig tall"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-3.jpg" alt="Group portrait in front of the exhibition" loading="lazy" decoding="async"></div><figcaption><b>Fiji Craft Society and NDINA Gallery</b>Auckland</figcaption></figure>
+</div>
+<div class="rc-col">
+  <p class="body">Wainikiti Amele, a traditional masi maker from Vatulele, smiled with pride after this story was shared while demonstrating to the Artwaka guests the tools of her ancient craft. A bottle of dark brown mangrove sap, x-ray film sheets with finely cut kesakesa (traditional motifs), and pure crème coloured masi barkcloth (paper mulberry tree) masterfully beaten into a smooth textile medium.</p>
+  <p class="body">Ilisoni Nawaha, a traditional potter from the province of Nadroga, shared an introduction to his lineage of earthenware work which can be traced back thousands of years to the Lapita voyagers that first explored and settled the Fijian Islands. A rare opportunity for the assembled audience to connect with these artisans, the evening quickly opened up into extended informal talanoa around the kava bowl.</p>
+</div>
+
+<div class="rc-col rc-sec">
+  <h2>Contemporary Fijian Artists</h2>
+  <p class="body">As a platform for cross-cultural learning, exchange and artistic appreciation the Artwaka Auckland exhibition featured diverse artworks from four contemporary Fijian artists (Mason James Lee, Josaia Waqabaca McNamara, Alifereti Malai, Anare Somumu) and three heritage artisans (Ana Vakayatu, Ulamila Vakaitavi, Wainikiti Amele) curated to provide a glimpse into the dynamic landscape of Fiji’s vibrant visual culture.</p>
+</div>
+<figure class="rc-fig rc-full"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-5.jpg" alt="Paintings lit on the exposed brick wall of the Fale Talanoa" loading="lazy" decoding="async"></div><figcaption><b>Works on the gallery wall</b>Four Shells Fale Talanoa, Tāmaki Makaurau</figcaption></figure>
+
+<section class="rc-idx">
+  <div class="rc-row"><h3>Mason James Lee</h3><div class="txt"><p class="">The exhibition was anchored by Mason James Lee’s arresting Ancient Collection - a series of three striking portraits on canvas inspired by archival imagery from the Fiji Museum interpreted through Lee’s signature organic layering technique. Often interpreted as inter-generational mirrors during evening talanoa, these front-facing works raised questions of how Fiji’s history is remembered, who tells its story and what role ancestry plays in the life and growth of the modern nation.</p><p class="">Appearing at first as frozen aquariums on the wall, Lee’s detailed canvas works Essence of Nature I and II acted as portals into the abundant natural eco-system of the Fiji Islands rendering in photo-realistic acrylic more than a dozen endemic species. Together with experimental use of ink and collage on masi barkcloth, Lee’s works illustrated tangible and intangible qualities of the Fijian vanua that grounded the Fale Talanoa in a dynamic sense of place for the duration of the program.</p></div></div>
+  <div class="rc-row"><h3>Josaia Waqabaca McNamara</h3><div class="txt"><p class="">Provocative oil paintings from Josaia Waqabaca McNamara’s recent solo exhibition Art of Wisdom II offered guests a window into the ethereal world of one of Fiji’s most penetrating artistic minds. A departure from Lee’s earthy tones and traditional subject matter, McNamara’s high contrast compositions in Red Moon (2026) and Cyber Wars (2026) brought viewers into direct confrontation with a sharp Fijian perspective on global geo-political conflict and increasing digital hegemony. Participants were similarly stirred by McNamara’s foreboding Birth of AI (2026) prompting intense discussion on the generational implications of vast technological power now available at the fingertips of children.</p></div></div>
+  <div class="rc-row"><h3>Alifereti Malai</h3><div class="txt"><p class="">While the first two evenings of art-talanoa on Lee and McNamara’s work were facilitated by emerging curator and Director of NDINA Gallery Dexter Cohen Bohn, the Artwaka was blessed to receive senior Fijian artist Alifereti Malai in-person for the second half of the exhibition week. Practising for more than 40 years across a breadth of mediums and styles, Malai presented a focused selection of fine drawings on masi barkcloth including the hyperrealistic black ink Fijian War Clubs (2026) and complete natural pigment works I Culacula Taiki - The Twisted Sceptre (2026) and Vakatasosoko Navigation - Our Journey (2026).</p><p class="">Through talanoa Malai shared insights into his artistic journey from early years growing up on his grandmother’s masi plantation in the western Fijian province of Ra, to discovering the unique artistic genius that was to renew his life during an intense period of hardship as a young man in Suva. Now a respected matua (elder) in the Fijian contemporary art movement, Malai’s innovative application of traditional knowledge particularly in the creation and use of natural pigments from dogo (mangrove sap) and makadre (kauri gum) have exerted lasting influence on his peers. Despite the artist’s soft spoken nature, Malai’s bold works sparked lively discourse on indigenous identity in relationship to material culture and the role contemporary art has in safeguarding treasured objects, knowledge and taonga.</p></div></div>
+  <!-- TODO: Anare Somumu row — no paragraph in the recap text yet -->
+</section>
+
+<p class="rc-quote">“…a fertile container for <span>cross pollination</span>…”</p>
+<figure class="rc-fig rc-inset"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-4.jpg" alt="Guests gathered in a circle for evening talanoa" loading="lazy" decoding="async"></div><figcaption><b>Evening kava-talanoa</b>Four Shells Fale Talanoa, Tāmaki Makaurau</figcaption></figure>
+
+<div class="rc-col rc-sec" style="margin-top:72px">
+  <h2>Voyaging together through talanoa</h2>
+  <p class="body">As a cultural exchange platform, the Artwaka evening kava-talanoa sessions created a fertile container for cross pollination between a broad spectrum of Tāmaki Makarau’s vibrant creative whanau. Celebrated Tongan sculptor and lalava lashing artist Sopolemalama Filipe Tohi joined the first evening mix sharing reflections on his involvement with the Tautai Pacific Arts Trust and early interactions with Red Wave Collective artists, including Lee and McNamara, in Fiji at the University of the South Pacific’s Oceania Centre.</p>
+  <p class="body">In the same space New York based Aotearoa-born art journalist Clare Gemima offered salient perspectives on the structural forces which had impeded a handful of artists from joining the exhibition in person, linking this instance to wider migratory challenges faced by artists from historically marginalized countries. Strong engagement from the youth-led Taki Lewa community throughout the week continually returned the talanoa to poignant decolonial insights on modern Pacific sovereignty especially relevant to Fiji’s 56th Independence Day and New Zealand’s looming 2026 general election.</p>
+  <p class="body">Serendipity brought faculty and staff from Aotearoa’s largest academic institutions - the University of Auckland and Auckland University of Technology - together with the wider Four Shells community on the final evening of the exhibition for a spontaneous and immersive collective journey through whakapapa, the te reo Māori term for ancestral lineage. Course convenors and facilitators from AUT’s five week UniPrep summer program integrated their planned hui into the art-talanoa sharing powerful stories of professional growth alongside personal introductions that wove a thick relational fabric between every participant around the kava bowl.</p>
+</div>
+<div class="rc-pair rc-pair2">
+  <figure class="rc-fig tall"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-6.jpg" alt="Talanoa circle with a guest reading" loading="lazy" decoding="async"></div><figcaption><b>Talanoa</b>Auckland</figcaption></figure>
+  <figure class="rc-fig wide"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-7.jpg" alt="Kava bowl at the centre of the circle" loading="lazy" decoding="async"></div><figcaption><b>The kava bowl</b>Four Shells Fale Talanoa, Tāmaki Makaurau</figcaption></figure>
+</div>
+
+<section class="rc-end">
+  <h2>Sailing onwards</h2>
+  <p>With a spirit humbly inspired by legends of great Pacific voyaging canoes, the Artwaka’s maiden landing in Aotearoa creatively retraced through art and kava-talanoa ancient oceanic connections to the Fiji Islands. A small and intimate experience intended to plant seeds for strengthened future collaboration, the Artwaka will return to Aotearoa in 2027 and warmly invites interested parties to reach out to <a href="mailto:artwaka@ndina.gallery">artwaka@ndina.gallery</a> to explore co-created opportunities for expanding stewardship of Oceanic arts.</p>
+  <a class="rc-btn" href="mailto:artwaka@ndina.gallery">artwaka@ndina.gallery</a>
+</section>
+</main>
+
+<script>
+  (function(){
+    var h=document.getElementById('siteHeader');
+    function t(){h.classList.toggle('scrolled', window.scrollY > 60);}
+    t(); window.addEventListener('scroll', t, {passive:true});
+  })();
+</script>
