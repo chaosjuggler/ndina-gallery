@@ -68,6 +68,14 @@ custom_header: true
   .rc-top h1{font-weight:300;font-size:clamp(40px,7vw,92px);line-height:1;letter-spacing:-.012em;margin-top:20px;}
   .rc-dateline{margin-top:20px;font-size:16px;color:var(--stone);letter-spacing:.02em;}
   .rc-col{max-width:680px;margin:0 auto;padding:0 24px;}
+  .rc-car{position:relative;margin-top:88px;}
+  .rc-cview{position:relative;height:min(56vw,760px);background:#121212;overflow:hidden;touch-action:pan-y;}
+  .rc-cs{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .9s ease;} .rc-cs.is-active{opacity:1;}
+  .rc-cs img{width:100%;height:100%;object-fit:cover;display:block;}
+  .rc-car .rc-arrow{width:48px;height:48px;} .rc-car .rc-arrow.prev{left:clamp(12px,3vw,32px);} .rc-car .rc-arrow.next{right:clamp(12px,3vw,32px);}
+  .rc-dots{position:absolute;left:0;right:0;bottom:6px;display:flex;justify-content:center;}
+  .rc-dot{width:36px;height:44px;padding:0;border:0;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .rc-dot i{display:block;width:8px;height:8px;border-radius:50%;background:#fff;opacity:.5;transition:opacity .3s;} .rc-dot.is-active i{opacity:1;}
   .rc-lede{font-size:clamp(22px,2.3vw,28px);line-height:1.45;font-weight:300;margin-top:72px;}
   .rc-body{font-size:18px;line-height:1.75;margin-top:24px;}
   .rc-sec{margin-top:110px;}
@@ -97,10 +105,10 @@ custom_header: true
   .rc-single{margin:0;} .rc-single figcaption,.rc-cap{padding-top:14px;font-size:13px;line-height:1.55;color:var(--stone);letter-spacing:.02em;margin:0;}
   .rc-single figcaption b,.rc-cap b{font-weight:500;color:var(--ink);}
   .rc-gallery{width:100%;}
-  .rc-frame{position:relative;aspect-ratio:4/5;background:var(--line);overflow:hidden;touch-action:pan-y;}
-  .rc-slide{display:none;position:absolute;inset:0;margin:0;}
-  .rc-slide.is-active{display:flex;align-items:center;justify-content:center;}
-  .rc-slide img{width:100%;height:100%;object-fit:contain;display:block;}
+  .rc-frame{position:relative;background:var(--line);overflow:hidden;touch-action:pan-y;}
+  .rc-slide{display:none;margin:0;}
+  .rc-slide.is-active{display:block;}
+  .rc-slide img{width:100%;height:auto;display:block;}
   .rc-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(18,18,18,.45);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .3s var(--ease);}
   .rc-arrow:hover{background:var(--clay);border-color:var(--clay);} .rc-arrow svg{width:20px;height:20px;}
   .rc-arrow.prev{left:10px;} .rc-arrow.next{right:10px;}
@@ -109,12 +117,13 @@ custom_header: true
   .rc-th img{width:100%;height:100%;object-fit:cover;display:block;}
   .rc-th:hover{opacity:1;} .rc-th.is-active{opacity:1;border-color:var(--ink);}
   .rc-cap{display:none;} .rc-cap.is-active{display:block;}
+  .rc-slide.rc-slot{aspect-ratio:2/3;}
   .rc-slot{display:flex;align-items:center;justify-content:center;text-align:center;border:1px dashed var(--stone);background:transparent;}
   .rc-slot span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);}
   .rc-shop{color:var(--clay);text-decoration:underline;text-underline-offset:3px;} .rc-shop:hover{color:var(--ink);}
   /* final talanoa section: portrait left, text right, wide image full-bleed below */
   .rc-split{max-width:1280px;margin:110px auto 0;padding:0 clamp(20px,5vw,56px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:start;}
-  .rc-split .l{grid-column:1 / span 5;margin:0;} .rc-split .l .rc-ph{aspect-ratio:3/4;overflow:hidden;background:var(--line);}
+  .rc-split .l{grid-column:1 / span 5;margin:0;} .rc-split .l .rc-ph{overflow:hidden;background:var(--line);} .rc-split .l .rc-ph img{height:auto;}
   .rc-split .r{grid-column:7 / span 6;} .rc-split h2{font-weight:300;font-size:clamp(28px,3.4vw,42px);line-height:1.15;margin-bottom:34px;}
   .rc-split .r p{font-size:18px;line-height:1.75;margin-bottom:32px;} .rc-split .r p:last-child{margin-bottom:0;}
   .rc-quote{max-width:860px;margin:110px auto 0;padding:0 24px;text-align:center;font-size:clamp(26px,3.2vw,40px);font-weight:300;line-height:1.3;}
@@ -128,6 +137,7 @@ custom_header: true
   @media (max-width:760px){
     .rc-hero{height:72svh;}
     .rc-top{padding-top:48px;}
+    .rc-car{margin-top:56px;} .rc-cview{height:auto;aspect-ratio:4/5;}
     .rc-lede{margin-top:52px;} .rc-sec{margin-top:76px;}
     .rc-pair{grid-template-columns:1fr;margin-top:48px;gap:24px;}
     .rc-full{margin-top:60px;} .rc-full .rc-ph{aspect-ratio:4/5;}
@@ -180,13 +190,22 @@ custom_header: true
 </section>
 
 <div class="rc-col">
-  <p class="rc-lede">Artwaka is a voyaging event series and collaborative platform curated by NDINA Gallery combining contemporary Oceanic arts with intentional space for kava-talanoa. Rooted in the shared significance of ‘waka’ - premium noble kava roots in the Fijian tradition, and traditional canoe in Māori culture - Artwaka celebrates Pacific heritage and contemporary art as a living, connected force.</p>
+  <p class="rc-lede">Artwaka is a voyaging event series and collaborative platform curated by NDINA Gallery combining contemporary Oceanic arts with intentional space for kava-talanoa.<br><br>Rooted in the shared significance of ‘waka’ - premium noble kava roots in the Fijian tradition, and traditional canoe in Māori culture - Artwaka celebrates Pacific heritage and contemporary art as a living, connected force.</p>
+</div>
+<section class="rc-car" aria-roledescription="carousel" aria-label="Exhibition photos">
+  <div class="rc-cview"><figure class="rc-cs is-active"><img src="/exhibitions/artwaka-auckland-2026/recap/img/exhibition-1.jpg" alt="Works by Fijian artists hung on the brick wall of the Fale Talanoa" decoding="async"></figure><figure class="rc-cs"><img src="/exhibitions/artwaka-auckland-2026/recap/img/exhibition-2.jpg" alt="Mason James Lee’s Essence of Nature paintings on the brick wall" loading="lazy" decoding="async"></figure><figure class="rc-cs"><img src="/exhibitions/artwaka-auckland-2026/recap/img/exhibition-3.jpg" alt="Shelves of paintings, bottles and prints on display with masi banners above" loading="lazy" decoding="async"></figure><figure class="rc-cs"><img src="/exhibitions/artwaka-auckland-2026/recap/img/exhibition-4.jpg" alt="Guests seated on woven mats beneath works by Alifereti Malai" loading="lazy" decoding="async"></figure><figure class="rc-cs"><img src="/exhibitions/artwaka-auckland-2026/recap/img/exhibition-5.jpg" alt="A guest hanging the artist statement for Josaia Waqabaca McNamara beside the Artwaka Auckland poster" loading="lazy" decoding="async"></figure><figure class="rc-cs"><img src="/exhibitions/artwaka-auckland-2026/recap/img/exhibition-6.jpg" alt="Guests gathered in a circle for evening talanoa" loading="lazy" decoding="async"></figure><figure class="rc-cs"><img src="/exhibitions/artwaka-auckland-2026/recap/img/exhibition-7.jpg" alt="Three guests seated on the mat during talanoa beneath Mason James Lee’s paintings" loading="lazy" decoding="async"></figure><figure class="rc-cs"><img src="/exhibitions/artwaka-auckland-2026/recap/img/exhibition-8.jpg" alt="Woven pandanus bags, fans and masi on a table draped in a Fiji Islands printed cloth" loading="lazy" decoding="async"></figure>
+    <button class="rc-arrow prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="rc-arrow next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5l7 7-7 7"/></svg></button>
+    <div class="rc-dots"><button class="rc-dot is-active" type="button" aria-label="Show exhibition photo 1 of 8"><i></i></button><button class="rc-dot" type="button" aria-label="Show exhibition photo 2 of 8"><i></i></button><button class="rc-dot" type="button" aria-label="Show exhibition photo 3 of 8"><i></i></button><button class="rc-dot" type="button" aria-label="Show exhibition photo 4 of 8"><i></i></button><button class="rc-dot" type="button" aria-label="Show exhibition photo 5 of 8"><i></i></button><button class="rc-dot" type="button" aria-label="Show exhibition photo 6 of 8"><i></i></button><button class="rc-dot" type="button" aria-label="Show exhibition photo 7 of 8"><i></i></button><button class="rc-dot" type="button" aria-label="Show exhibition photo 8 of 8"><i></i></button></div>
+  </div>
+</section>
+<div class="rc-col" style="margin-top:72px">
   <p class="body">In the first week of October 2026, the Artwaka made its maiden voyage from Fiji to Aotearoa for a weeklong exhibition and program of arts-based talanoa celebrating Fiji Language Week and Fiji Day 2026. In partnership with the Fiji Craft Society a diverse exhibition of original canvas, masi barkcloth and fine ink artworks were displayed together with traditional woven crafts and selected art objects at the Four Shells Fale Talanoa in the Auckland CBD.</p>
   <p class="body">One of the last events to be hosted at the Fale Talanoa before relocation of their function space, Four Shells owners Anau Henry-Masui and Todd Henry received a formal Fijian isevusevu presentation of yaqona from members of Fiji Craft Society and NDINA Gallery. Recognizing the whenua of Aotearoa and Tāmaki Makaurau, the isevusevu emphasized the visiting group’s gratitude for being welcomed and joy in establishing a newfound friendship between the Four Shells community and Fijian arts ecosystem.</p>
 </div>
 
 <div class="rc-col rc-sec">
-  <h2>Fiji Craft Society</h2>
+  <h2>Fiji Craft Society in Auckland</h2>
   <p class="body">Niqa Tuvuki, President of the Fiji Craft Society, opened the first evening of art-talanoa sharing her excitement to be coordinating the Society’s week long engagements with the Fijian community in Tāmaki Makarau including craft, language and meke (traditional dance) workshops for Aotearoa-born Fijian youth.</p>
   <p class="body">By way of introduction, Tuvuki shared a moving story from 2011 underlining the importance of heritage craft to modern cultural expression. When a Fijian cultural delegation visiting Aotearoa to perform a meke from the island of Vatulele, an island famous for its intricate masi barkcloth designs, encountered numerous inexplicable setbacks during preparations their leader received a vivid dream. Transported to a chiefly bure (traditional house) on Vatulele, the leader was shown the correct orientation of the masi that was similarly being used for the group’s stage backdrop. Following an immediate adjustment at the venue upon awakening, the group executed a flawless performance that was praised widely by both the hosts and assembled Pacific Island delegations.</p>
 </div>
@@ -200,7 +219,7 @@ custom_header: true
 </div>
 
 <div class="rc-col rc-sec">
-  <h2>Contemporary Fijian Artists</h2>
+  <h2>Contemporary Fijian Art in Auckland</h2>
   <p class="body">As a platform for cross-cultural learning, exchange and artistic appreciation the Artwaka Auckland exhibition featured diverse artworks from four contemporary Fijian artists (Mason James Lee, Josaia Waqabaca McNamara, Alifereti Malai, Anare Somumu) and three heritage artisans (Ana Vakayatu, Ulamila Vakaitavi, Wainikiti Amele) curated to provide a glimpse into the dynamic landscape of Fiji’s vibrant visual culture.</p>
 </div>
 <figure class="rc-fig rc-full"><div class="rc-ph"><img src="/exhibitions/artwaka-auckland-2026/recap/img/recap-5.jpg" alt="Paintings lit on the exposed brick wall of the Fale Talanoa" loading="lazy" decoding="async"></div><figcaption><b>Works on the gallery wall</b>Four Shells Fale Talanoa, Tāmaki Makaurau</figcaption></figure>
@@ -233,6 +252,18 @@ custom_header: true
 </section>
 </main>
 
+<script>
+  (function(){
+    var c=document.querySelector('.rc-car'); if(!c) return;
+    var sl=[].slice.call(c.querySelectorAll('.rc-cs')),dt=[].slice.call(c.querySelectorAll('.rc-dot')),v=c.querySelector('.rc-cview'),i=0,x0=null;
+    function show(n){i=(n+sl.length)%sl.length;sl.forEach(function(e,k){e.classList.toggle('is-active',k===i);});dt.forEach(function(e,k){e.classList.toggle('is-active',k===i);});}
+    c.querySelector('.prev').addEventListener('click',function(){show(i-1);});
+    c.querySelector('.next').addEventListener('click',function(){show(i+1);});
+    dt.forEach(function(d,k){d.addEventListener('click',function(){show(k);});});
+    v.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+    v.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>40){show(dx<0?i+1:i-1);}},{passive:true});
+  })();
+</script>
 <script>
   document.querySelectorAll('.rc-gallery').forEach(function(g){
     var sl=[].slice.call(g.querySelectorAll('.rc-slide')),cp=[].slice.call(g.querySelectorAll('.rc-cap')),th=[].slice.call(g.querySelectorAll('.rc-th')),fr=g.querySelector('.rc-frame'),i=0,x0=null;
