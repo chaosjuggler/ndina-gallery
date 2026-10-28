@@ -2,7 +2,7 @@
    <script src="/assets/js/announce.js" defer></script>            */
 (function () {
   var URL = 'https://shop.ndina.gallery/';
-  var TEXT = 'Celebrate NDINA\u2019s Online Store Launch with 20% off Fine Art Prints this holiday season! CODE: MARAUTAKI20';
+  var TEXT = 'NDINA Shop is open! Celebrate with us - 15% off all prints this holiday season with code: MARAUTAKI15';
   var DELAY = 2000;                                        // ms after page open
   if (document.getElementById('ndina-announce')) return;
   var css = '#ndina-announce{display:block;box-sizing:border-box;width:100%;background:#F2C4B5;color:#7A2E18;' +
