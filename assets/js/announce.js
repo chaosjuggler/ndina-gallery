@@ -2,7 +2,10 @@
    <script src="/assets/js/announce.js" defer></script>            */
 (function () {
   var URL = 'https://shop.ndina.gallery/';
-  var TEXT = 'NDINA Shop is open! Celebrate with us - 15% off all prints this holiday season with code: MARAUTAKI15';
+  var OFFER_ENDS = Date.UTC(2026, 10, 30, 17, 0, 0);       // end of 30 Nov 2026, Bangkok time
+  var TEXT = Date.now() < OFFER_ENDS
+    ? 'NDINA Shop is open! Celebrate with us - 15% off all prints until 30 November with code: MARAUTAKI15'
+    : 'NDINA Shop is open! Fine art prints, signed prints and original works';
   var DELAY = 2000;                                        // ms after page open
   if (document.getElementById('ndina-announce')) return;
   var css = '#ndina-announce{display:block;box-sizing:border-box;width:100%;background:#F2C4B5;color:#7A2E18;' +
