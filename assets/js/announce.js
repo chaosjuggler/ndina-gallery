@@ -5,21 +5,21 @@
   var TEXT = 'Celebrate NDINA\u2019s Online Store Launch with 20% off Fine Art Prints this holiday season! CODE: MARAUTAKI20';
   var DELAY = 2000;                                        // ms after page open
   if (document.getElementById('ndina-announce')) return;
-  var css = '#ndina-announce{display:block;box-sizing:border-box;width:100%;background:#cfe8fb;color:#0b3a5e;' +
+  var css = '#ndina-announce{display:block;box-sizing:border-box;width:100%;background:#F2C4B5;color:#7A2E18;' +
     'text-align:center;font:500 14px/1.3 Jost,"Helvetica Neue",Arial,sans-serif;letter-spacing:.04em;' +
-    'text-decoration:none;border-bottom:0 solid #aed3f0;position:relative;z-index:1000;cursor:pointer;' +
+    'text-decoration:none;border-bottom:0 solid #E08D74;position:relative;z-index:1000;cursor:pointer;' +
     'max-height:0;overflow:hidden;opacity:0;transform:translateY(-100%);' +
     'transition:max-height .8s cubic-bezier(.22,1,.36,1),opacity .6s ease,transform .8s cubic-bezier(.22,1,.36,1)}' +
     '#ndina-announce.show{max-height:120px;opacity:1;transform:none;border-bottom-width:1px}' +
     '#ndina-announce .in{display:block;padding:10px 16px}' +
-    '#ndina-announce:hover{background:#bfe0f8}' +
+    '#ndina-announce:hover{background:#EDB5A3}' +
     '#ndina-announce .sh{font-weight:600;text-decoration:underline;text-underline-offset:3px;' +
-    'background:linear-gradient(100deg,#0b3a5e 0%,#0b3a5e 38%,#5fb0ee 48%,#ffffff 50%,#5fb0ee 52%,#0b3a5e 62%,#0b3a5e 100%);' +
+    'background:linear-gradient(100deg,#7A2E18 0%,#7A2E18 38%,#B4492B 48%,#E08D74 50%,#B4492B 52%,#7A2E18 62%,#7A2E18 100%);' +
     'background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;' +
     'animation:ndinaShine 2.6s linear infinite}' +
     '@keyframes ndinaShine{from{background-position:150% 0}to{background-position:-100% 0}}' +
     '@media(max-width:480px){#ndina-announce{font-size:13px;line-height:1.35}#ndina-announce .in{padding:9px 14px}}' +
-    '@media(prefers-reduced-motion:reduce){#ndina-announce{transition:none}#ndina-announce .sh{animation:none;-webkit-text-fill-color:#0b3a5e;color:#0b3a5e}}';
+    '@media(prefers-reduced-motion:reduce){#ndina-announce{transition:none}#ndina-announce .sh{animation:none;-webkit-text-fill-color:#7A2E18;color:#7A2E18}}';
   var s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);
   var a = document.createElement('a'); a.id = 'ndina-announce'; a.href = URL; a.target = '_self';
   a.setAttribute('aria-label', TEXT);
