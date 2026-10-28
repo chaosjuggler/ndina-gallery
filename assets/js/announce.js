@@ -1,10 +1,12 @@
 /* NDINA Gallery — site-wide announcement bar. Add once per page:
    <script src="/assets/js/announce.js" defer></script>            */
 (function () {
-  var URL = '/exhibitions/artwaka-auckland-2026/catalogue/';
-  var TEXT = 'Artwaka Auckland Exhibition Catalogue';
+  var URL = 'https://shop.ndina.gallery/collections/editions';
+  var OFFER_ENDS = Date.UTC(2026, 11, 31, 17, 0, 0);       // 1 Jan 2027, Bangkok time
+  var TEXT = Date.now() < OFFER_ENDS
+    ? 'NDINA Shop is open: 15% off all prints with code MARAUTAKI15'
+    : 'NDINA Shop is open: fine art prints, signed prints and originals';
   var DELAY = 2000;                                        // ms after page open
-  if (location.pathname.indexOf(URL) === 0) return;       // not on the catalogue itself
   if (document.getElementById('ndina-announce')) return;
   var css = '#ndina-announce{display:block;box-sizing:border-box;width:100%;background:#cfe8fb;color:#0b3a5e;' +
     'text-align:center;font:500 14px/1.3 Jost,"Helvetica Neue",Arial,sans-serif;letter-spacing:.04em;' +
