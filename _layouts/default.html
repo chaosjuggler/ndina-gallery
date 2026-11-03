@@ -27,6 +27,14 @@
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }} — {% endif %}NDINA Gallery">
 <meta name="twitter:description" content="{{ page.description | default: site.description }}">
 <meta name="twitter:image" content="{{ site.url }}{{ page.image | default: '/og-cover.jpg' }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"{{ site.url }}/#org","name":"NDINA Gallery","url":"{{ site.url }}/","logo":"{{ site.url }}/og-cover.jpg","email":"admin@ndina.gallery","description":"International fine art gallery representing Fijian contemporary artists for global audiences.","founder":{"@type":"Person","name":"Dexter Cohen Bohn"},"sameAs":["https://shop.ndina.gallery/"]},
+{"@type":"WebSite","@id":"{{ site.url }}/#site","url":"{{ site.url }}/","name":"NDINA Gallery","publisher":{"@id":"{{ site.url }}/#org"}}{% if page.date_published %},
+{"@type":"Article","headline":"{{ page.headline | default: page.title }}","description":{{ page.description | jsonify }},"image":"{{ site.url }}{{ page.image }}","datePublished":"{{ page.date_published }}","mainEntityOfPage":"{{ site.url }}{{ page.url }}","author":{"@type":"Person","name":"Dexter Cohen Bohn"},"publisher":{"@id":"{{ site.url }}/#org"}}{% endif %}
+]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
