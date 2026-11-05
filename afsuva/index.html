@@ -195,6 +195,7 @@ a{color:inherit}
 .sheet-note{margin:0;font-size:11.5px;line-height:1.5;color:rgba(247,243,234,.85);text-align:center}
 .sheet-note a{color:var(--paper);text-decoration-color:var(--flame);text-underline-offset:3px}
 .contact{margin:6px 0 0;font-size:11.5px;font-weight:400;overflow-wrap:anywhere}
+.contact a{color:inherit;text-decoration-color:var(--flame);text-underline-offset:3px}
 .contact b{letter-spacing:.14em;text-transform:uppercase;font-size:10px;font-weight:700;color:var(--flame-text)}
 .statement.real{border:0;border-left:3px solid var(--flame);font-style:normal;color:var(--ink);padding:2px 0 2px 14px;font-size:14px;font-weight:400;line-height:1.6}
 .works li{display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -380,7 +381,7 @@ var WORKS = {
 };
 ARTISTS.forEach(function(a){
   a.statement = STATEMENTS[a.id] || '';
-  a.email = ''; a.phone = '';
+  a.email = {'mason-lee':'masonjameslee@gmail.com','josaia-mcnamara':'josaia.mcnamara50@gmail.com','anare-somumu':'anare_somumu@yahoo.com','alamanda-datt':'connect@ndina.gallery','hefrani-barnes':'connect@ndina.gallery','carson-young':'waqadrua@gmail.com'}[a.id]||''; a.phone = '';
   a.labelName = {'josaia-mcnamara':'Josaia W. Mc Namara','mason-lee':'Mason James Lee'}[a.id] || a.name;
   a.works = (WORKS[a.id] || []).slice().sort(function(x,y){return (x.ar||1.25)-(y.ar||1.25)});
 });
@@ -410,8 +411,10 @@ ARTISTS.forEach(function(a){
   ht.appendChild(el('p','kicker','Exhibiting artist'));
   ht.appendChild(el('h2',null,a.name));
   var ct=el('p','contact'); ct.appendChild(el('b',null,'Contact'));
-  var cd=[a.email,a.phone].filter(Boolean).join(' \u00b7 ');
-  ct.appendChild(document.createTextNode(' \u00b7 '+(cd||'email and phone to be provided'))); ht.appendChild(ct);
+  ct.appendChild(document.createTextNode(' \u00b7 '));
+  if(a.email){var ml=el('a',null,a.email); ml.href='mailto:'+a.email; ct.appendChild(ml); if(a.phone) ct.appendChild(document.createTextNode(' \u00b7 '+a.phone));}
+  else ct.appendChild(document.createTextNode(a.phone||'email and phone to be provided'));
+  ht.appendChild(ct);
   ht.appendChild(el('p','count',a.works.length?(a.works.length+(a.works.length===1?' work':' works')):'Works to be added'));
   head.appendChild(hi); head.appendChild(ht); inner.appendChild(head);
   var st=el('p','statement'+(a.statement?' real':''),a.statement||'Artist biography and statement to come.');
