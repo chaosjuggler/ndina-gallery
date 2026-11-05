@@ -586,13 +586,25 @@ document.addEventListener('keydown',function(e){
   if(e.key==='ArrowLeft'&&cur>0) show(cur-1);
   if(e.key==='ArrowRight'&&cur<flat.length-1) show(cur+1);
 });
-/* swipe between works */
+/* swipe between works: only a deliberate, mostly horizontal swipe on the card (never a scroll) */
 (function(){
-  var sx=null; var body=sheet;
-  body.addEventListener('touchstart',function(e){sx=(zs.on||/^(INPUT|TEXTAREA)$/.test(e.target.tagName))?null:e.touches[0].clientX},{passive:true});
-  body.addEventListener('touchend',function(e){
-    if(sx==null) return; var dx=e.changedTouches[0].clientX-sx; sx=null;
-    if(Math.abs(dx)<70) return;
+  var sx=null, sy=0, vertical=false, ok=false;
+  var card=sheet.querySelector('.sheet-card');
+  card.addEventListener('touchstart',function(e){
+    var tg=e.target;
+    ok=!(zs.on||(tg.closest&&tg.closest('input,textarea,button,a,.sheet-nav,.enq-form,.enq-done')));
+    sx=e.touches[0].clientX; sy=e.touches[0].clientY; vertical=false;
+  },{passive:true});
+  card.addEventListener('touchmove',function(e){
+    if(sx==null) return;
+    var dx=e.touches[0].clientX-sx, dy=e.touches[0].clientY-sy;
+    if(Math.abs(dy)>10&&Math.abs(dy)>Math.abs(dx)) vertical=true;
+  },{passive:true});
+  card.addEventListener('touchcancel',function(){sx=null},{passive:true});
+  card.addEventListener('touchend',function(e){
+    if(sx==null) return;
+    var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy, was=ok&&!vertical; sx=null;
+    if(!was||Math.abs(dx)<80||Math.abs(dx)<2.5*Math.abs(dy)) return;
     if(dx<0&&cur<flat.length-1) show(cur+1); else if(dx>0&&cur>0) show(cur-1);
   },{passive:true});
 })();
