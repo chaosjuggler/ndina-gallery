@@ -1,0 +1,53 @@
+---
+layout: default
+title: Past Exhibitions
+description: Past NDINA Gallery exhibitions: the Fijian Arts Festival 2026 at Alliance Française de Suva, Artwaka Auckland and Art@Hibiscus, with journals and exhibition catalogues.
+---
+<style>
+  .ex{max-width:1180px;margin:0 auto;padding:72px clamp(20px,6vw,64px) 96px;}
+  .ex-head{margin-bottom:48px;}
+  .ex-head h1{font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;}
+  .ex-head p{margin-top:18px;max-width:560px;font-size:clamp(15px,1.5vw,17px);line-height:1.8;color:var(--stone);}
+  .ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;list-style:none;}
+  .ex-card{display:flex;flex-direction:column;}
+  .ex-img{display:block;aspect-ratio:4/5;overflow:hidden;background:var(--ink);border:2px solid var(--clay);}
+  .ex-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 1.4s var(--ease);}
+  .ex-card:hover .ex-img img,.ex-img:focus-visible img{transform:scale(1.06);}
+  .ex-date{margin-top:20px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);}
+  .ex-card h2{margin-top:8px;font-weight:400;font-size:clamp(21px,2.2vw,26px);line-height:1.25;}
+  .ex-place{margin-top:6px;font-size:14px;color:var(--stone);}
+  .ex-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px 22px;}
+  .ex-links a{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--clay);padding-bottom:3px;transition:color .3s var(--ease);}
+  .ex-links a:hover{color:var(--clay);}
+  @media (max-width:900px){.ex-grid{grid-template-columns:repeat(2,1fr);gap:28px;}}
+  @media (max-width:560px){.ex{padding-top:48px;}.ex-grid{grid-template-columns:1fr;}.ex-img{aspect-ratio:4/3;}}
+</style>
+<main class="ex">
+  <div class="ex-head">
+    <h1>Past Exhibitions</h1>
+    <p>Exhibitions, voyages and pop-ups from NDINA Gallery and the Fijian artists we represent, each with a journal of the event and its exhibition catalogue.</p>
+  </div>
+  <ul class="ex-grid">
+    <li class="ex-card">
+      <a class="ex-img" href="/exhibitions/afsuva-2026/recap/" aria-label="Fijian Arts Festival 2026 journal"><img src="/exhibitions/img/afsuva-2026.webp" width="600" height="750" alt="Cover of the Fijian Arts Festival 2026 exhibition catalogue" loading="lazy" decoding="async"></a>
+      <p class="ex-date">23–30 October 2026</p>
+      <h2>Fijian Arts Festival 2026</h2>
+      <p class="ex-place">Alliance Française de Suva, Fiji</p>
+      <p class="ex-links"><a href="/exhibitions/afsuva-2026/recap/">Journal</a><a href="/afsuva/">Catalogue</a></p>
+    </li>
+    <li class="ex-card">
+      <a class="ex-img" href="/exhibitions/artwaka-auckland-2026/recap/" aria-label="Artwaka Auckland journal"><img src="/exhibitions/img/artwaka-auckland-2026.webp" width="900" height="706" alt="Four works by Fijian artists hung on the exposed brick wall of the Four Shells Fale Talanoa" loading="lazy" decoding="async"></a>
+      <p class="ex-date">6–10 October 2026</p>
+      <h2>Artwaka Auckland</h2>
+      <p class="ex-place">Four Shells Fale Talanoa, Auckland</p>
+      <p class="ex-links"><a href="/exhibitions/artwaka-auckland-2026/recap/">Journal</a><a href="/exhibitions/artwaka-auckland-2026/catalogue/">Catalogue</a></p>
+    </li>
+    <li class="ex-card">
+      <a class="ex-img" href="/exhibitions/hibiscus-2026/catalogue/" aria-label="Art@Hibiscus exhibition catalogue"><img src="/exhibitions/img/hibiscus-2026.webp" width="600" height="750" alt="Cover of the Art@Hibiscus exhibition catalogue" loading="lazy" decoding="async"></a>
+      <p class="ex-date">29 August – 5 September 2026</p>
+      <h2>Art@Hibiscus: New Works Show</h2>
+      <p class="ex-place">Albert Park, Suva, Fiji</p>
+      <p class="ex-links"><a href="/exhibitions/hibiscus-2026/catalogue/">Catalogue</a></p>
+    </li>
+  </ul>
+</main>

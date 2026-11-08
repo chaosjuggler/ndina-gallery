@@ -233,6 +233,9 @@ body{overflow-x:hidden;}
   .artists{background:var(--paper);padding:40px clamp(20px,8vw,64px) 56px;}
   .section-head{margin-bottom:36px;}
   .section-head h2{font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;}
+  .journal .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;}
+  .journal-all{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--clay);padding-bottom:3px;}
+  .journal-all:hover{color:var(--clay);}
 
   .artist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   .artist-tile{
@@ -449,6 +452,7 @@ body{overflow-x:hidden;}
 <section class="artists journal" id="journal" style="padding-top:8px">
   <div class="section-head reveal">
     <h2>Journal</h2>
+    <a class="journal-all" href="/exhibitions/">Past exhibitions &rarr;</a>
   </div>
   <div class="artist-grid reveal">
     <a class="artist-tile" href="/exhibitions/afsuva-2026/recap/" style="display:block;">
