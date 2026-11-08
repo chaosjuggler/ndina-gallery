@@ -9,4 +9,5 @@ layout: null
 {%- endif -%}
 {%- endfor %}
   <url><loc>{{ site.url }}/exhibitions/artwaka-auckland-2026/catalogue/</loc></url>
+  <url><loc>{{ site.url }}/afsuva/</loc></url>
 </urlset>
