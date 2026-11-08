@@ -1,0 +1,113 @@
+---
+layout: default
+title: Exhibitions
+description: Exhibitions curated and presented by NDINA Gallery. Recaps, catalogues and installation views from Hibiscus Festival, Artwaka Auckland and the Fijian Arts Festival.
+---
+<style>
+  .page-title{text-align:center;padding:56px clamp(20px,6vw,56px) 36px;}
+  .page-title h1{font-family:var(--sans);font-weight:600;font-size:clamp(30px,4.6vw,48px);letter-spacing:-0.01em;margin-bottom:14px;}
+  .page-title p{font-size:14px;color:var(--stone);max-width:480px;margin:0 auto;}
+
+  .exh-wrap{overflow-x:clip;}
+  .exh{padding:clamp(28px,5vw,56px) 0 clamp(20px,4vw,40px);border-top:1px solid var(--line);}
+  .exh-head{display:grid;grid-template-columns:clamp(112px,22vw,240px) minmax(0,1fr);gap:clamp(16px,3.2vw,40px);align-items:start;max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,56px) clamp(22px,3.4vw,36px);}
+  .exh-tile{display:block;aspect-ratio:4/5;overflow:hidden;background:var(--line);}
+  .exh-tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+  .exh-tile:hover img,.exh-tile:focus-visible img{transform:scale(1.04);}
+  .exh-text{min-width:0;}
+  .exh-text h2{font-weight:600;font-size:clamp(22px,3.4vw,36px);line-height:1.12;letter-spacing:-0.01em;margin-bottom:10px;text-wrap:balance;}
+  .exh-text h2 a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .4s var(--ease),color .3s var(--ease);}
+  .exh-text h2 a:hover,.exh-text h2 a:focus-visible{background-size:100% 1px;color:var(--clay);}
+  .exh-meta{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;color:var(--stone);line-height:1.6;margin-bottom:14px;}
+  .exh-blurb{font-size:15px;line-height:1.65;max-width:56ch;}
+  .exh-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 22px;}
+  .exh-links a{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;color:var(--clay);border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .3s var(--ease);}
+  .exh-links a:hover{border-color:currentColor;}
+  a:focus-visible,button:focus-visible,.track:focus-visible{outline:2px solid var(--clay);outline-offset:3px;}
+
+  /* full-bleed carousel */
+  .car{position:relative;width:100vw;margin-left:calc(50% - 50vw);background:#111;}
+  .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;}
+  .track::-webkit-scrollbar{display:none;}
+  .slide{flex:0 0 100%;scroll-snap-align:center;height:min(80vh,66.67vw);min-height:260px;}
+  .slide img{width:100%;height:100%;object-fit:cover;}
+  .nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.35);color:#fff;font-size:18px;line-height:1;cursor:pointer;backdrop-filter:blur(6px);transition:background .3s var(--ease),opacity .3s var(--ease);}
+  .nav:hover{background:rgba(0,0,0,.6);}
+  .nav[disabled]{opacity:0;pointer-events:none;}
+  .prev{left:max(12px,env(safe-area-inset-left,0px));}
+  .next{right:max(12px,env(safe-area-inset-right,0px));}
+  .car-count{position:absolute;right:max(14px,env(safe-area-inset-right,0px));bottom:12px;font-size:11px;letter-spacing:0.14em;font-weight:600;color:#fff;background:rgba(0,0,0,.45);padding:5px 10px;border-radius:20px;}
+  .car-cap{font-size:12px;letter-spacing:0.06em;color:var(--stone);padding:12px clamp(20px,5vw,56px) 0;max-width:1080px;margin:0 auto;}
+  .car-empty{width:100vw;margin-left:calc(50% - 50vw);min-height:clamp(160px,24vw,280px);display:flex;align-items:center;justify-content:center;background:var(--line);}
+  .car-empty p{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:var(--stone);}
+  @media (hover:none){.nav{display:none;}}
+  @media (prefers-reduced-motion:reduce){.exh-tile img{transition:none;}}
+</style>
+
+<section class="page-title">
+  <h1>Exhibitions</h1>
+  <p>Recaps, catalogues and installation views from the exhibitions NDINA Gallery has presented.</p>
+</section>
+
+<div class="exh-wrap">
+  <section class="exh" id="hibiscus">
+    <div class="exh-head">
+      <a class="exh-tile" href="/exhibitions/hibiscus-2026/catalogue/" aria-label="Art@Hibiscus New Works Show"><img src="/exhibitions/hibiscus-2026/catalogue/hibiscus-thumb.webp" alt="Art@Hibiscus New Works Show poster: Lee, Datt, Barnes, Somumu, McNamara" width="600" height="750" loading="eager" decoding="async"></a>
+      <div class="exh-text">
+        <h2><a href="/exhibitions/hibiscus-2026/catalogue/">Art@Hibiscus New Works Show</a></h2>
+        <p class="exh-meta">29 August – 5 September 2026 <span aria-hidden="true">·</span> Albert Park, Suva, Fiji</p>
+        <p class="exh-blurb">New works by five Fijian artists (Mason James Lee, Alamanda Datt, Hefrani Barnes, Anare Somumu and Josaia Waqabaca McNamara) shown during the Hibiscus Festival.</p>
+        
+      </div>
+    </div>
+    <div class="car-empty"><p>Installation views coming soon</p></div>
+  </section>
+  <section class="exh" id="artwaka">
+    <div class="exh-head">
+      <a class="exh-tile" href="/exhibitions/artwaka-auckland-2026/recap/" aria-label="Artwaka Auckland"><img src="/exhibitions/artwaka-auckland-2026/thumb.webp" alt="Paintings hung on a brick wall at the Artwaka Auckland exhibition" width="600" height="750" loading="lazy" decoding="async"></a>
+      <div class="exh-text">
+        <h2><a href="/exhibitions/artwaka-auckland-2026/recap/">Artwaka Auckland</a></h2>
+        <p class="exh-meta">6–10 October 2026 <span aria-hidden="true">·</span> Four Shells Fale Talanoa, Auckland</p>
+        <p class="exh-blurb">The Artwaka’s maiden voyage from Fiji to Aotearoa: a week of art and kava-talanoa celebrating Fiji Language Week and Fiji Day.</p>
+        <p class="exh-links"><a href="/exhibitions/artwaka-auckland-2026/recap/">Read the recap</a><a href="/exhibitions/artwaka-auckland-2026/catalogue/">View the catalogue</a></p>
+      </div>
+    </div>
+    <div class="car" data-car aria-roledescription="carousel" aria-label="Artwaka Auckland installation views">
+      <div class="track" tabindex="0"><figure class="slide"><img src="/exhibitions/artwaka-auckland-2026/installation/install-1.webp" alt="Paintings by NDINA artists hung on an exposed brick wall at Four Shells Fale Talanoa, warmly lit" width="1800" height="1200" loading="lazy" decoding="async"></figure><figure class="slide"><img src="/exhibitions/artwaka-auckland-2026/installation/install-2.webp" alt="Two large colourful canvases on the brick wall above a table of prints" width="1800" height="1200" loading="lazy" decoding="async"></figure><figure class="slide"><img src="/exhibitions/artwaka-auckland-2026/installation/install-3.webp" alt="Display niches, hanging textiles and a table of prints and small works" width="1800" height="1200" loading="lazy" decoding="async"></figure><figure class="slide"><img src="/exhibitions/artwaka-auckland-2026/installation/install-4.webp" alt="An artist pinning a wall label beside the Artwaka Auckland exhibition card" width="1800" height="1200" loading="lazy" decoding="async"></figure></div>
+      <button class="nav prev" type="button" aria-label="Previous image">&#8592;</button>
+      <button class="nav next" type="button" aria-label="Next image">&#8594;</button>
+      <div class="car-count" aria-live="polite"><span data-n>1</span> / 4</div>
+    </div>
+    <p class="car-cap">Installation views, Four Shells Fale Talanoa, Auckland</p>
+  </section>
+  <section class="exh" id="fijian-arts-festival">
+    <div class="exh-head">
+      <a class="exh-tile" href="/afsuva/" aria-label="Fijian Arts Festival 2026"><img src="/afsuva/thumb.webp" alt="Fijian Arts Festival 2026 exhibition catalogue cover" width="600" height="750" loading="lazy" decoding="async"></a>
+      <div class="exh-text">
+        <h2><a href="/afsuva/">Fijian Arts Festival 2026</a></h2>
+        <p class="exh-meta">23–30 October 2026 (exhibition on view until 1 December) <span aria-hidden="true">·</span> Alliance Française de Suva, Fiji</p>
+        <p class="exh-blurb">The second annual celebration of Fijian arts, culture and heritage, with an exhibition, art-talanoa, workshops and live performances, in collaboration with NDINA Gallery.</p>
+        
+      </div>
+    </div>
+    <div class="car-empty"><p>Installation views coming soon</p></div>
+  </section>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-car]').forEach(function(car){
+    var track=car.querySelector('.track'),prev=car.querySelector('.prev'),next=car.querySelector('.next'),out=car.querySelector('[data-n]');
+    var slides=track.children,count=slides.length;
+    function idx(){return Math.max(0,Math.min(count-1,Math.round(track.scrollLeft/track.clientWidth)));}
+    function sync(){var i=idx();out.textContent=i+1;prev.disabled=i===0;next.disabled=i===count-1;}
+    function go(i){track.scrollTo({left:i*track.clientWidth,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
+    prev.addEventListener('click',function(){go(idx()-1);});
+    next.addEventListener('click',function(){go(idx()+1);});
+    track.addEventListener('scroll',function(){window.requestAnimationFrame(sync);},{passive:true});
+    track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(idx()+1);}else if(e.key==='ArrowLeft'){e.preventDefault();go(idx()-1);}});
+    window.addEventListener('resize',function(){go(idx());});
+    sync();
+  });
+})();
+</script>
