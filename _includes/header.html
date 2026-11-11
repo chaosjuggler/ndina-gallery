@@ -1,6 +1,7 @@
 <header>
   <a href="/" class="logo"><img src="/assets/img/ndina-logo.png" alt="NDINA Gallery"></a>
   <nav class="desktop-nav">
+    <a href="/exhibitions/"{% if page.url contains "/exhibitions/" %} class="active"{% endif %}>Exhibitions</a>
     <a href="/"{% if page.url == "/" %} class="active"{% endif %}>Home</a>
     <a href="/artists/"{% if page.url contains "/artists/" %} class="active"{% endif %}>Artists</a>
     <a href="/artwaka/"{% if page.url contains "/artwaka/" %} class="active"{% endif %}>Artwaka</a>
@@ -23,6 +24,7 @@
     <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
   </div>
   <nav>
+    <a href="/exhibitions/"{% if page.url contains "/exhibitions/" %} class="active"{% endif %}>Exhibitions</a>
     <a href="/"{% if page.url == "/" %} class="active"{% endif %}>Home</a>
     <a href="/artists/"{% if page.url contains "/artists/" %} class="active"{% endif %}>Artists</a>
     <a href="/artwaka/"{% if page.url contains "/artwaka/" %} class="active"{% endif %}>Artwaka</a>
