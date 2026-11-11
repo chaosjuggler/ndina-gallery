@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NDINA Gallery — Artwaka Siam Voyage Catalogue</title>
+<meta name="description" content="NDINA Gallery catalogue for Artwaka Siam Voyage, a Fiji–Thailand arts and cultural exchange, Nov–Dec 2026. Mason James Lee, Josaia Waqabaca McNamara and Anare Somumu.">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/artwaka-favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/img/artwaka-favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/artwaka-apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#ffc600;--gold2:#e0a800;--ink:#050505;--panel:#121212;--panel2:#1b1b1b;--line:#2a2a2a;--txt:#f2f2f2;--mut:#a8a8a8;--ok:#33c15c;--sold:#ef4444}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:'Jost',sans-serif;background:var(--ink);color:var(--txt);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.bar{height:6px;background:linear-gradient(90deg,var(--gold2),var(--gold),var(--gold2))}
+.cover{max-width:620px;margin:0 auto}.cover img{display:block;width:100%;height:auto}
+.intro{max-width:760px;margin:0 auto;padding:26px 20px 8px;text-align:center}
+.intro .th{font-family:'Noto Sans Thai','Jost',sans-serif;color:var(--gold);font-weight:600;letter-spacing:.04em;margin:0 0 2px}
+.intro h1{margin:0;font-weight:700;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:1.5rem}
+.intro p{color:var(--mut);font-size:.98rem;line-height:1.6;margin:12px 0 0}
+.route{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 0;padding:0;list-style:none}
+.route li{border:1px solid var(--line);color:var(--txt);font-size:.76rem;padding:7px 12px;border-radius:30px;letter-spacing:.03em}.route b{color:var(--gold);font-weight:600}
+.tools{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin-top:22px}
+.tools-in{max-width:1100px;margin:0 auto;padding:10px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{flex:1 1 200px;min-width:160px;background:var(--panel);border:1px solid var(--line);color:var(--txt);padding:10px 14px;border-radius:30px;font:inherit;font-size:.9rem;outline:none}
+.search:focus{border-color:var(--gold)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;color:var(--mut);padding:8px 13px;border-radius:30px;font:inherit;font-size:.78rem;font-weight:500;cursor:pointer;letter-spacing:.03em}
+.chip.on{background:var(--gold);color:#000;border-color:var(--gold)}
+.chip .d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.count{margin-left:auto;color:var(--mut);font-size:.78rem}
+.artist{scroll-margin-top:120px}
+.ah{text-align:center;padding:50px 20px 14px}
+.ah .dm{display:inline-block;width:12px;height:12px;background:var(--gold);transform:rotate(45deg);margin-bottom:14px}
+.ah h2{margin:0;font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
+.ah p{margin:6px 0 0;color:var(--mut);font-size:.85rem}
+.gh{max-width:1100px;margin:26px auto 0;padding:0 18px;color:var(--txt);text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:12px}
+.gh:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold2),transparent)}
+.grid{max-width:1100px;margin:0 auto;padding:14px 14px 4px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr);gap:18px;padding:16px 18px 4px}}
+@media(min-width:960px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:border-color .2s,transform .2s;text-align:left;font:inherit;color:inherit;padding:0}
+.card:hover,.card:focus-visible{border-color:var(--gold);transform:translateY(-2px);outline:none}
+.card .im{width:100%;aspect-ratio:1/1;flex:none;background:#000;position:relative;overflow:hidden}
+.card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.card.sold .im img{opacity:.55}
+.badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.78);border:1px solid var(--sold);color:#ffb4b4;font-size:.64rem;letter-spacing:.14em;padding:3px 8px;border-radius:20px;text-transform:uppercase}
+.cb{padding:11px 12px 13px;display:flex;flex-direction:column;gap:3px;flex:1}
+.t{font-weight:600;font-size:.92rem;line-height:1.25}
+.dt{color:var(--mut);font-size:.74rem}
+.pr{color:var(--gold);font-weight:600;font-size:.92rem;margin-top:3px}.pr small{color:var(--mut);font-weight:400;font-size:.74rem;margin-left:6px}
+.card.sold .pr{color:#777;text-decoration:line-through}.card.sold .pr small{text-decoration:none}
+.av{display:flex;align-items:center;gap:7px;font-size:.74rem;color:#7fd99a;font-weight:500}
+.av i{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(51,193,92,.18)}
+.av.s{color:#f19a9a}.av.s i{background:var(--sold);box-shadow:0 0 0 3px rgba(239,68,68,.18)}
+.tg{font-style:italic;color:#8a8a8a;font-size:.68rem;margin-top:2px}
+.empty{text-align:center;color:var(--mut);padding:40px 20px;display:none}
+footer{max-width:760px;margin:60px auto 0;padding:34px 20px 60px;text-align:center;color:var(--mut);font-size:.8rem;line-height:1.7;border-top:1px solid var(--line)}
+footer b{color:var(--gold);letter-spacing:.14em}footer a{color:var(--gold);border-bottom:1px solid rgba(255,198,0,.4)}
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.985);z-index:50;display:none;overflow-y:auto}
+.lb.on{display:block}
+.lb-in{max-width:1000px;margin:0 auto;padding:56px 16px 30px;display:grid;gap:18px}
+@media(min-width:820px){.lb-in{grid-template-columns:1.25fr 1fr;align-items:start;padding-top:70px}}
+.lb-img{background:#000;border:1px solid var(--line);display:flex;justify-content:center;position:relative}
+.lb-img img{max-width:100%;max-height:78vh;object-fit:contain;display:block}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:rgba(0,0,0,.65);color:var(--gold);font-size:1.3rem;cursor:pointer}
+.lb-nav.p{left:8px}.lb-nav.n{right:8px}
+.lb-x{position:fixed;top:12px;right:14px;width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:#000;color:var(--gold);font-size:1.4rem;cursor:pointer;z-index:60}
+.lb-info .ar{color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:.74rem;font-weight:600}
+.lb-info h3{margin:6px 0 4px;font-size:1.5rem;line-height:1.2}
+.lb-info .dt{font-size:.9rem;margin-bottom:12px}
+.lb-info .pr{font-size:1.25rem}
+.btn{display:inline-block;margin-top:16px;background:var(--gold);color:#000;padding:12px 22px;border-radius:30px;font-weight:600;font-size:.88rem;letter-spacing:.04em}
+.btn.o{background:transparent;color:var(--gold);border:1px solid var(--gold);margin-left:8px}
+.acts{display:flex;flex-wrap:wrap;gap:8px}.acts .btn{margin-top:16px}.acts .btn.o{margin-left:0}
+.enqrow{display:flex;align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap}
+.enq{display:inline-block;border:1px solid var(--mut);color:var(--txt);padding:8px 20px;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;background:transparent}
+.enq:hover{border-color:var(--gold);color:var(--gold)}.em{color:var(--mut);font-size:.8rem;user-select:all}
+.fl{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:16px;font-size:.84rem;align-items:center}.fl span{width:100%;color:var(--mut);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}.fl a{color:var(--gold);border-bottom:1px solid currentColor}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media print{.tools,.lb{display:none!important}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div class="bar"></div>
+<header>
+ <div class="cover"><img src="img/cover.webp" alt="Artwaka Siam Voyage, Nov–Dec 2026"></div>
+ <div class="intro">
+  <h1 class="sr">Artwaka Siam Voyage Catalogue</h1>
+  <p style="margin-top:4px">A 6-week Fiji–Thailand arts and cultural exchange, opening at HOPE Space BKK, Bangkok on 16 November 2026.</p>
+  <ul class="route">
+   <li><b>16–30 Nov</b> HOPE Space, Bangkok</li>
+   <li><b>19–22 Nov</b> Mycelium Festival, Chiang Dao</li>
+   <li><b>3–7 Dec</b> Wonderfruit, Pattaya</li>
+   <li><b>18–30 Dec</b> Mana Lotus Village, Chiang Mai</li>
+  </ul>
+  <p style="font-size:.85rem">Prices in US dollars as listed on the NDINA Shop, with approximate Thai baht. Select any work for details and to enquire.</p>
+ </div>
+</header>
+<div class="bar" style="margin-top:20px"></div>
+<div class="tools"><div class="tools-in">
+ <input class="search" id="q" type="search" placeholder="Search works, artists, media…" aria-label="Search works">
+ <div class="chips" id="fav"><button class="chip on" data-v="all">All</button><button class="chip" data-v="avail"><span class="d" style="background:var(--ok)"></span>Available</button><button class="chip" data-v="sold"><span class="d" style="background:var(--sold)"></span>Sold</button></div>
+ <div class="chips" id="far"></div>
+ <span class="count" id="cnt"></span>
+</div></div>
+<main id="main"></main>
+<p class="empty" id="empty">No works match your search.</p>
+<footer>
+ <b>NDINA GALLERY</b><br>
+ To enquire about any work, use the Enquire button or write to <a href="mailto:connect@ndina.gallery">connect@ndina.gallery</a>.<br>
+ Thai baht amounts are approximate (US$1 ≈ ฿33.53) and may change with the exchange rate.<br>
+ <a href="https://ndina.gallery">ndina.gallery</a>
+</footer>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork details">
+ <button class="lb-x" id="lbx" aria-label="Close">×</button>
+ <div class="lb-in">
+  <div class="lb-img"><button class="lb-nav p" id="lbp" aria-label="Previous">‹</button><img id="lbi" alt=""><button class="lb-nav n" id="lbn" aria-label="Next">›</button></div>
+  <div class="lb-info" id="lbinfo"></div>
+ </div>
+</div>
+<script>
+var SHOP='https://shop.ndina.gallery/products/';
+var ENQ='Artwaka Siam Voyage';
+var CFGTHB=true;
+function THB(w){return CFGTHB?'<small>≈ '+esc(w.thb)+'</small>':''}
+var W=[{"artist": "Mason James Lee", "group": "Canvas works", "title": "Ancient I – Turaga (2013)", "detail": "Acrylic on canvas · 59.5 x 78.5 cm", "price": "US$1,500", "tag": "Fine Art Giclee Prints Available - US$95", "img": "Ancient-I-Turaga.webp", "sold": false, "shop": "ancient-i-turaga", "gic": "ancient-i-turaga-fine-art-giclee-print", "id": "ancient-i-turaga", "thb": "฿50,300"}, {"artist": "Mason James Lee", "group": "Canvas works", "title": "Ancient II – Lewa (2013)", "detail": "Acrylic on canvas · 58 x 82 cm", "price": "US$1,500", "tag": "Fine Art Giclee Prints Available - US$95", "img": "Ancient-II-Lewa.webp", "sold": false, "shop": "ancient-ii-lewa", "gic": "ancient-ii-lewa-fine-art-giclee-print", "id": "ancient-ii-lewa", "thb": "฿50,300"}, {"artist": "Mason James Lee", "group": "Canvas works", "title": "Ancient III – The Last Stand (2020)", "detail": "Oil on canvas · 83 x 91.5 cm", "price": "US$2,506", "tag": "Fine Art Giclee Prints Available - US$115", "img": "Ancient-III-Last-Stand.webp", "sold": true, "shop": "ancient-iii-the-last-stand", "gic": "ancient-iii-the-last-stand-fine-art-giclee-print", "id": "ancient-iii-the-last-stand", "thb": "฿84,040"}, {"artist": "Mason James Lee", "group": "Canvas works", "title": "The Essence of Nature I (2019)", "detail": "Acrylic on canvas · 90.5 x 89 cm", "price": "US$2,181", "tag": "Fine Art Giclee Prints Available - US$135", "img": "Essence-of-Nature-I.webp", "sold": true, "shop": "the-essence-of-nature-i", "gic": "the-essence-of-nature-i-fine-art-giclee-print", "id": "the-essence-of-nature-i", "thb": "฿73,140"}, {"artist": "Mason James Lee", "group": "Canvas works", "title": "The Essence of Nature II (2014)", "detail": "Acrylic on canvas · 90 x 71 cm", "price": "US$2,200", "tag": "Fine Art Giclee Prints Available - US$135", "img": "Essence-of-Nature-II.webp", "sold": false, "shop": "the-essence-of-nature-ii", "gic": "the-essence-of-nature-ii-fine-art-giclee-print", "id": "the-essence-of-nature-ii", "thb": "฿73,770"}, {"artist": "Mason James Lee", "group": "Small works", "title": "Drua Dua (2026)", "detail": "Acrylic on canvas · 30 x 30 cm", "price": "US$362", "tag": "Signed Limited Edition Inkjet Prints Available - US$50", "img": "Drua-Dua.webp", "sold": false, "shop": "drua-dua", "id": "drua-dua", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Small works", "title": "Vonu Rua (2026)", "detail": "Acrylic on canvas · 30 x 30 cm", "price": "US$362", "tag": "Signed Limited Edition Inkjet Prints Available - US$50", "img": "Vonu-Rua.webp", "sold": false, "shop": "vonu-rua", "id": "vonu-rua", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Small works", "title": "My World II (2026)", "detail": "Acrylic on canvas · 30 x 30 cm", "price": "US$362", "tag": "Signed Limited Edition Inkjet Prints Available - US$50", "img": "My-World-II.webp", "sold": false, "shop": "my-world-ii", "id": "my-world-ii", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Small works", "title": "Old Ways I (2026)", "detail": "Acrylic on canvas · 30 x 30 cm", "price": "US$362", "tag": "Signed Limited Edition Inkjet Prints Available - US$50", "img": "Old-Ways-I.webp", "sold": false, "shop": "old-ways-i", "id": "old-ways-i", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Small works", "title": "My World I (2026)", "detail": "Acrylic on canvas · 30 x 30 cm", "price": "US$362", "tag": "Signed Limited Edition Inkjet Prints Available - US$50", "img": "My-World-I.webp", "sold": false, "shop": "my-world-i", "id": "my-world-i", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Small works", "title": "Vonu Dua (2026)", "detail": "Acrylic on canvas · 30 x 30 cm", "price": "US$362", "tag": "Signed Limited Edition Inkjet Prints Available - US$50", "img": "Vonu-Dua.webp", "sold": false, "shop": "vono-dua", "id": "vono-dua", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Small works", "title": "Old Ways III (2026)", "detail": "Acrylic on canvas · 30 x 30 cm", "price": "US$362", "tag": "Signed Limited Edition Inkjet Prints Available - US$50", "img": "Old-Ways-III.webp", "sold": false, "shop": "old-ways-iii", "id": "old-ways-iii", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Small works", "title": "Weary Side (2026)", "detail": "Acrylic on canvas · 40 x 40 cm", "price": "US$418", "tag": "Signed Limited Edition Inkjet Prints Available - US$50", "img": "Weary-Side.webp", "sold": true, "shop": "weary-side", "id": "weary-side", "thb": "฿14,020"}, {"artist": "Mason James Lee", "group": "Small works", "title": "Drua Rua (2026)", "detail": "Acrylic on canvas · 30 x 30 cm", "price": "US$362", "tag": "Signed Limited Edition Inkjet Prints Available - US$50", "img": "Drua-Rua.webp", "sold": false, "shop": "drua-rua", "id": "drua-rua", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Hold-watcher (2025)", "detail": "Ink pen on masi · 32 x 47 cm", "price": "US$362", "tag": "", "img": "Masi-Hold-Watcher.webp", "sold": false, "shop": "hold-watcher", "id": "hold-watcher", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "My Totem (Masi) - owl, fan, bird (2025)", "detail": "Ink pen on masi · 32 x 47 cm", "price": "US$362", "tag": "", "img": "Masi-My-Totem-Masi.webp", "sold": false, "shop": "my-totem-masi-owl-fan-bird", "id": "my-totem-masi-owl-fan-bird", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Susu I (blue and yellow) Masi (2025)", "detail": "Pen and acrylic on masi · 32 x 47 cm", "price": "US$362", "tag": "", "img": "Masi-Susu-I.webp", "sold": false, "shop": "susu-i-blue-and-yellow-masi", "id": "susu-i-blue-and-yellow-masi", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Susu II (purple masi) (2025)", "detail": "Pen and acrylic on masi · 32 x 47 cm", "price": "US$362", "tag": "", "img": "Masi-Susu-II.webp", "sold": false, "shop": "susu-ii-purple-masi", "id": "susu-ii-purple-masi", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Ancient Collection I (masi) (2025)", "detail": "Mangrove sap and ink on masi · 32 x 47 cm", "price": "US$255", "tag": "", "img": "Masi-Ancient-Collection-I.webp", "sold": false, "shop": "ancient-collection-i-masi", "id": "ancient-collection-i-masi", "thb": "฿8,550"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Ancient Collection II (masi) (2025)", "detail": "Mangrove sap and ink on masi · 32 x 47 cm", "price": "US$255", "tag": "", "img": "Masi-Ancient-Collection-II.webp", "sold": false, "shop": "ancient-collection-ii-masi", "id": "ancient-collection-ii-masi", "thb": "฿8,550"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Ancient Collection III (masi) (2025)", "detail": "Mangrove sap and ink on masi · 32 x 47 cm", "price": "US$362", "tag": "", "img": "Masi-Ancient-Collection-III.webp", "sold": false, "shop": "ancient-collection-iii-masi", "id": "ancient-collection-iii-masi", "thb": "฿12,140"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Senibua (2025)", "detail": "Pen on masi · 32 x 47 cm", "price": "US$167", "tag": "", "img": "Masi-Senibua.webp", "sold": false, "shop": "senibua", "id": "senibua", "thb": "฿5,600"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Flora I - Orchid White (2025)", "detail": "Acrylic on masi · 32 x 47 cm", "price": "US$167", "tag": "", "img": "Masi-Flora-I-Orchid-White.webp", "sold": false, "shop": "flora-i-orchid-white", "id": "flora-i-orchid-white", "thb": "฿5,600"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Flora II - Orchid Orange (2025)", "detail": "Acrylic on masi · 32 x 47 cm", "price": "US$167", "tag": "", "img": "Masi-Flora-II-Orchid-Orange.webp", "sold": false, "shop": "flora-ii-orchid-orange", "id": "flora-ii-orchid-orange", "thb": "฿5,600"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Flora III - Orchid Pink (2025)", "detail": "Acrylic on masi · 32 x 47 cm", "price": "US$167", "tag": "", "img": "Masi-Flora-III-Orchid-Pink.webp", "sold": false, "shop": "flora-iii-orchid-pink", "id": "flora-iii-orchid-pink", "thb": "฿5,600"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Flora IV - Masi Hibiscus Orange (2025)", "detail": "Acrylic on masi · 32 x 47 cm", "price": "US$167", "tag": "", "img": "Masi-Flora-IV-Hibiscus-Orange.webp", "sold": false, "shop": "flora-iv-masi-hibiscus-orange", "id": "flora-iv-masi-hibiscus-orange", "thb": "฿5,600"}, {"artist": "Mason James Lee", "group": "Masi works", "title": "Flora V - Masi Hibiscus Pink (2025)", "detail": "Acrylic on masi · 32 x 47 cm", "price": "US$167", "tag": "", "img": "Masi-Flora-V-Hibiscus-Pink.webp", "sold": false, "shop": "flora-v-masi-hibiscus-pink", "id": "flora-v-masi-hibiscus-pink", "thb": "฿5,600"}, {"artist": "Mason James Lee", "group": "Collectible flasks", "title": "Collectible flask (2026)", "detail": "Stainless steel, bamboo lid, 750ml · 8 x 27 cm", "price": "US$53", "tag": "Designs: Drua Dua · Dua Rua · Vonu Dua · Vonu Rua · Wearyside · Nightwatcher · Old Ways II · My World I", "img": "Flasks-A.webp", "sold": false, "img2": "Flasks-B.webp", "flasks": [["Drua Dua", "collectible-flask-drua-dua"], ["Dua Rua", "collectible-flask-dua-rua"], ["Vonu Dua", "collectible-flask-vono-dua"], ["Vonu Rua", "collectible-flask-vono-rua"], ["Wearyside", "collectible-flask-wearyside"], ["Nightwatcher", "collectible-flask-nightwatcher"], ["Old Ways II", "collectible-flask-old-ways-ii"], ["My World I", "collectible-flask-my-world-i"]], "id": "collectible-flask", "thb": "฿1,780"}, {"artist": "Josaia Waqabaca McNamara", "group": "Mata ni Vanua", "title": "Mata ni Vanua I (2014)", "detail": "Acrylic on canvas board · 23 x 31 cm", "price": "US$139", "tag": "", "img": "Mata-ni-Vanua-I.webp", "sold": false, "shop": "mata-ni-vanua-i", "id": "mata-ni-vanua-i", "thb": "฿4,660"}, {"artist": "Josaia Waqabaca McNamara", "group": "Mata ni Vanua", "title": "Mata ni Vanua II (2014)", "detail": "Acrylic on board · 23 x 31 cm", "price": "US$139", "tag": "", "img": "Mata-ni-Vanua-II.webp", "sold": false, "shop": "mata-ni-vanua-ii", "id": "mata-ni-vanua-ii", "thb": "฿4,660"}, {"artist": "Josaia Waqabaca McNamara", "group": "Masi works", "title": "Sovereign Law of the Land I (2026)", "detail": "Acrylic on masi · 23 x 55 cm", "price": "US$139", "tag": "", "img": "Sovereign-Law-I.webp", "sold": false, "shop": "sovereign-law-of-the-land-i", "id": "sovereign-law-of-the-land-i", "thb": "฿4,660"}, {"artist": "Josaia Waqabaca McNamara", "group": "Masi works", "title": "Sovereign Law of the Land II (2026)", "detail": "Acrylic on masi · 23 x 55 cm", "price": "US$139", "tag": "", "img": "Sovereign-Law-II.webp", "sold": false, "shop": "sovereign-law-of-the-land-ii", "id": "sovereign-law-of-the-land-ii", "thb": "฿4,660"}, {"artist": "Josaia Waqabaca McNamara", "group": "Masi works", "title": "Sovereign Law of the Land III (2026)", "detail": "Acrylic on masi · 23 x 55 cm", "price": "US$139", "tag": "", "img": "Sovereign-Law-III.webp", "sold": false, "shop": "sovereign-law-of-the-land-iii", "id": "sovereign-law-of-the-land-iii", "thb": "฿4,660"}, {"artist": "Anare Somumu", "group": "Limited edition prints", "title": "A Final Plea", "detail": "Signed inkjet print on A4 220gsm art card · Edition of 100", "price": "US$50", "tag": "", "img": "A-Final-Plea.webp", "sold": false, "shop": "a-final-plea", "id": "a-final-plea", "thb": "฿1,680"}, {"artist": "Anare Somumu", "group": "Limited edition prints", "title": "If There Is Hope Let Me Know", "detail": "Signed inkjet print on A4 220gsm art card · Edition of 100", "price": "US$50", "tag": "", "img": "If-There-Is-Hope.webp", "sold": false, "shop": "if-there-is-hope-let-me-know", "id": "if-there-is-hope-let-me-know", "thb": "฿1,680"}, {"artist": "Anare Somumu", "group": "Limited edition prints", "title": "Fijian Mona Lisa", "detail": "Signed inkjet print on A4 220gsm art card · Edition of 100", "price": "US$50", "tag": "", "img": "Fijian-Mona-Lisa.webp", "sold": false, "shop": "fijian-mona-lisa", "id": "fijian-mona-lisa", "thb": "฿1,680"}, {"artist": "Anare Somumu", "group": "Limited edition prints", "title": "Nai Vakatawa Ni Noke", "detail": "Signed inkjet print on A4 220gsm art card · Edition of 100", "price": "US$50", "tag": "", "img": "Nai-Vakatawa-Ni-Noke.webp", "sold": false, "shop": "nai-vakatawa-ni-noke", "id": "nai-vakatawa-ni-noke", "thb": "฿1,680"}];
+var ARTISTS=[];W.forEach(function(w){if(ARTISTS.indexOf(w.artist)<0)ARTISTS.push(w.artist)});
+var st={q:'',fav:'all',ar:'all'},vis=[],cur=-1;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function slug(a){return a.toLowerCase().replace(/[^a-z0-9]+/g,'-')}
+var far=document.getElementById('far');
+far.innerHTML='<button class="chip on" data-v="all">All artists</button>'+ARTISTS.map(function(a){return '<button class="chip" data-v="'+esc(a)+'">'+esc(a.split(' ')[0])+'</button>'}).join('');
+function match(w){
+ if(st.fav==='avail'&&w.sold)return false;if(st.fav==='sold'&&!w.sold)return false;
+ if(st.ar!=='all'&&w.artist!==st.ar)return false;
+ if(!st.q)return true;
+ var h=(w.title+' '+w.artist+' '+w.detail+' '+w.group+' '+w.tag).toLowerCase();
+ return st.q.toLowerCase().split(/\s+/).every(function(t){return h.indexOf(t)>-1});
+}
+function render(){
+ vis=W.filter(match);var out='',n=0;
+ ARTISTS.forEach(function(a){
+  var list=vis.filter(function(w){return w.artist===a});if(!list.length)return;
+  out+='<section class="artist" id="'+slug(a)+'"><div class="ah"><span class="dm"></span><h2>'+esc(a)+'</h2><p>'+list.length+' work'+(list.length>1?'s':'')+'</p></div>';
+  var groups=[];list.forEach(function(w){if(groups.indexOf(w.group)<0)groups.push(w.group)});
+  groups.forEach(function(g){
+   out+='<h3 class="gh">'+esc(g)+'</h3><div class="grid">';
+   list.filter(function(w){return w.group===g}).forEach(function(w){
+    var i=vis.indexOf(w);
+    out+='<button class="card'+(w.sold?' sold':'')+'" data-i="'+i+'" id="w-'+w.id+'"><div class="im"><img src="img/'+esc(w.img)+'" alt="'+esc(w.title)+'" loading="lazy" decoding="async">'+(w.sold?'<span class="badge">Sold</span>':'')+'</div><div class="cb"><div class="t">'+esc(w.title)+'</div><div class="dt">'+esc(w.detail)+'</div><div class="pr">'+esc(w.price)+''+THB(w)+'</div><div class="av'+(w.sold?' s':'')+'"><i></i>'+(w.sold?'Sold':'Available')+'</div>'+(w.tag&&w.group!=='Collectible flasks'?'<div class="tg">'+esc(w.tag)+'</div>':'')+'</div></button>';
+   });
+   out+='</div>';
+  });
+  out+='</section>';
+ });
+ document.getElementById('main').innerHTML=out;
+ document.getElementById('empty').style.display=vis.length?'none':'block';
+ document.getElementById('cnt').textContent=vis.length+' of '+W.length+' works';
+}
+document.getElementById('q').addEventListener('input',function(e){st.q=e.target.value.trim();render()});
+function chips(id,key){document.getElementById(id).addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;st[key]=b.getAttribute('data-v');[].forEach.call(this.children,function(c){c.classList.toggle('on',c===b)});render()})}
+chips('fav','fav');chips('far','ar');
+var lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
+function show(i){
+ if(!vis.length)return;cur=(i+vis.length)%vis.length;var w=vis[cur];
+ var sub='Enquiry: '+w.title,body='Hello NDINA Gallery,%0D%0A%0D%0AI would like to enquire about "'+w.title+'" by '+w.artist+' ('+ENQ+').%0D%0A';
+ var L='';
+ if(w.shop&&!w.sold)L+='<a class="btn" target="_blank" rel="noopener" href="'+SHOP+w.shop+'">'+(w.group==='Limited edition prints'?'Buy this print':'View in shop')+'</a>';
+ if(w.gic)L+='<a class="btn'+(w.sold?'':' o')+'" target="_blank" rel="noopener" href="'+SHOP+w.gic+'">Fine Art Giclée Print</a>';
+ if(w.flasks)L+='<div class="fl"><span>Shop a design</span>'+w.flasks.map(function(f){return '<a target="_blank" rel="noopener" href="'+SHOP+f[1]+'">'+esc(f[0])+'</a>'}).join('')+'</div>';
+ var enq='<a class="enq" href="mailto:connect@ndina.gallery?subject='+encodeURIComponent(sub)+'&body='+body+'">Enquire</a><span class="em">connect@ndina.gallery</span>';
+ document.getElementById('lbinfo').innerHTML='<div class="ar">'+esc(w.artist)+'</div><h3>'+esc(w.title)+'</h3><div class="dt">'+esc(w.detail)+'</div><div class="pr"'+(w.sold?' style="color:#999;text-decoration:line-through"':'')+'>'+esc(w.price)+THB(w)+'</div><div class="av'+(w.sold?' s':'')+'" style="margin-top:8px"><i></i>'+(w.sold?'Sold':'Available')+'</div>'+(w.tag&&!w.flasks?'<div class="tg" style="font-size:.8rem;margin-top:8px">'+esc(w.tag)+'</div>':'')+'<div class="acts">'+L+'</div><div class="enqrow">'+enq+'</div>';
+ lbi.src='img/'+w.img;lbi.alt=w.title;
+ try{history.replaceState(null,'','#w-'+w.id)}catch(e){}
+ lb.classList.add('on');document.body.style.overflow='hidden';
+}
+function hide(){lb.classList.remove('on');document.body.style.overflow='';history.replaceState(null,'',location.pathname+location.search)}
+document.getElementById('main').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)show(+c.getAttribute('data-i'))});
+document.getElementById('lbx').onclick=hide;document.getElementById('lbp').onclick=function(){show(cur-1)};document.getElementById('lbn').onclick=function(){show(cur+1)};
+lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lb-in'))hide()});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')hide();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+render();
+var m=location.hash.match(/^#w-(.+)$/);if(m){var k=vis.findIndex(function(w){return w.id===m[1]});if(k>-1)show(k)}
+</script>
+</body>
+</html>
