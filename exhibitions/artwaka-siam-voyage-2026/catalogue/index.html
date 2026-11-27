@@ -82,6 +82,10 @@ footer b{color:var(--gold);letter-spacing:.14em}footer a{color:var(--gold);borde
 .enq{display:inline-block;border:1px solid var(--mut);color:var(--txt);padding:8px 20px;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;background:transparent}
 .enq:hover{border-color:var(--gold);color:var(--gold)}.em{color:var(--mut);font-size:.8rem;user-select:all}
 .fl{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:16px;font-size:.84rem;align-items:center}.fl span{width:100%;color:var(--mut);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}.fl a{color:var(--gold);border-bottom:1px solid currentColor}
+.lb-info .ab{display:flex;gap:14px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.lb-info .ab img{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none}
+.lb-info .ab .k{color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:.68rem;font-weight:600}
+.lb-info .ab .n{font-weight:600;margin:2px 0 4px}.lb-info .ab p{margin:0;font-size:.82rem;line-height:1.55;color:var(--mut)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media print{.tools,.lb{display:none!important}body{background:#fff;color:#000}}
 </style>
@@ -166,6 +170,8 @@ function render(){
 document.getElementById('q').addEventListener('input',function(e){st.q=e.target.value.trim();render()});
 function chips(id,key){document.getElementById(id).addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;st[key]=b.getAttribute('data-v');[].forEach.call(this.children,function(c){c.classList.toggle('on',c===b)});render()})}
 chips('fav','fav');chips('far','ar');
+var BIO={"Mason James Lee":["mason-james-lee","Mason James Lee (b. 1976) is a leading independent Fijian artist of Bua and Chinese heritage, mentored by Dr Epeli Hau\u2019ofa and a pioneer of the Red Wave collective. He pairs realistic detail with symbolism rooted in Pacific culture and environmental themes. His work has been shown across the Pacific, Europe, Asia and the USA."],"Anare Somumu":["anare-somumu","Anare Somumu (b. 1971) is a Fijian painter from Lakeba village, Cakaudrove, Vanua Levu, now based in Suva. A former children\u2019s book illustrator, he is known for figurative work on the tension between modernity and traditional Fijian culture. He is the first Pacific artist named an Arirang Master for intangible cultural heritage."],"Josaia Waqabaca McNamara":["josaia-waqabaca-mcnamara","Josaia Waqabaca McNamara (b. 1974) is a self-taught Fijian philosopher-artist with maternal links to Matuku, Lau. His paintings blend ancient esoteric symbolism with vibrant Fijian motifs. A Commonwealth Arts & Crafts Award winner, he has shown at biennales in Tahiti, New Caledonia and Italy."]};
+function AB(a){var b=BIO[a];if(!b)return'';return '<div class="ab"><img src="img/artists/'+b[0]+'.webp" alt="'+esc(a)+'" width="72" height="72" decoding="async"><div><div class="k">About the artist</div><div class="n">'+esc(a)+'</div><p>'+esc(b[1])+'</p></div></div>'}
 var lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
 function show(i){
  if(!vis.length)return;cur=(i+vis.length)%vis.length;var w=vis[cur];
@@ -175,7 +181,7 @@ function show(i){
  if(w.gic)L+='<a class="btn'+(w.sold?'':' o')+'" target="_blank" rel="noopener" href="'+SHOP+w.gic+'">Fine Art Giclée Print</a>';
  if(w.flasks)L+='<div class="fl"><span>Shop a design</span>'+w.flasks.map(function(f){return '<a target="_blank" rel="noopener" href="'+SHOP+f[1]+'">'+esc(f[0])+'</a>'}).join('')+'</div>';
  var enq='<a class="enq" href="mailto:connect@ndina.gallery?subject='+encodeURIComponent(sub)+'&body='+body+'">Enquire</a><span class="em">connect@ndina.gallery</span>';
- document.getElementById('lbinfo').innerHTML='<div class="ar">'+esc(w.artist)+'</div><h3>'+esc(w.title)+'</h3><div class="dt">'+esc(w.detail)+'</div><div class="pr"'+(w.sold?' style="color:#999;text-decoration:line-through"':'')+'>'+PR(w)+'</div><div class="av'+(w.sold?' s':'')+'" style="margin-top:8px"><i></i>'+(w.sold?'Sold':'Available')+'</div>'+(w.tag&&!w.flasks?'<div class="tg" style="font-size:.8rem;margin-top:8px">'+esc(w.tag)+'</div>':'')+'<div class="acts">'+L+'</div><div class="enqrow">'+enq+'</div>';
+ document.getElementById('lbinfo').innerHTML='<div class="ar">'+esc(w.artist)+'</div><h3>'+esc(w.title)+'</h3><div class="dt">'+esc(w.detail)+'</div><div class="pr"'+(w.sold?' style="color:#999;text-decoration:line-through"':'')+'>'+PR(w)+'</div><div class="av'+(w.sold?' s':'')+'" style="margin-top:8px"><i></i>'+(w.sold?'Sold':'Available')+'</div>'+(w.tag&&!w.flasks?'<div class="tg" style="font-size:.8rem;margin-top:8px">'+esc(w.tag)+'</div>':'')+'<div class="acts">'+L+'</div><div class="enqrow">'+enq+'</div>'+AB(w.artist);
  lbi.src='img/'+w.img;lbi.alt=w.title;
  try{history.replaceState(null,'','#w-'+w.id)}catch(e){}
  lb.classList.add('on');document.body.style.overflow='hidden';
